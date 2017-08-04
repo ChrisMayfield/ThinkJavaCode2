@@ -1,5 +1,5 @@
 /**
- * Example method from Chapter 6.
+ * Example method from Chapter 8.
  */
 public class Series {
 
