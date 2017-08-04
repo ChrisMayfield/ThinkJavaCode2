@@ -6,7 +6,7 @@ import java.util.Arrays;
 public class ArrayExamples {
 
     /**
-     * Example code from Chapter 8.
+     * Example code from Chapter 7.
      */
     public static void main(String[] args) {
         int size = 10;

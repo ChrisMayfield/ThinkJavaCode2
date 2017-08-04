@@ -1,5 +1,5 @@
 /**
- * Examples from Chapter 7.
+ * Examples from Chapter 6.
  */
 public class Loops {
 
