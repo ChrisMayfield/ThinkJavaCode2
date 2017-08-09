@@ -23,7 +23,7 @@ public class Deck {
     }
 
     /**
-     * Constructs a deck of n cards (null).
+     * Constructs a deck of n cards (all null).
      */
     public Deck(int n) {
         this.cards = new Card[n];
@@ -53,36 +53,36 @@ public class Deck {
     }
 
     /**
-     * Chooses a random number between low and high, including both.
-     */
-    public int randomInt(int low, int high) {
-        return 0;
-    }
-
-    /**
-     * Swaps the cards at indexes i and j.
-     */
-    public void swapCards(int i, int j) {
-    }
-
-    /**
      * Randomly permutes the array of cards.
      */
     public void shuffle() {
     }
 
     /**
-     * Finds the index of the lowest card
-     * between low and high inclusive.
+     * Chooses a random number between low and high, including both.
      */
-    public int indexLowest(int low, int high) {
+    private static int randomInt(int low, int high) {
         return 0;
+    }
+
+    /**
+     * Swaps the cards at indexes i and j.
+     */
+    private void swapCards(int i, int j) {
     }
 
     /**
      * Sorts the cards (in place) using selection sort.
      */
     public void selectionSort() {
+    }
+
+    /**
+     * Finds the index of the lowest card
+     * between low and high inclusive.
+     */
+    private int indexLowest(int low, int high) {
+        return 0;
     }
 
     /**
@@ -99,7 +99,7 @@ public class Deck {
     /**
      * Combines two previously sorted subdecks.
      */
-    public static Deck merge(Deck d1, Deck d2) {
+    private static Deck merge(Deck d1, Deck d2) {
         return null;
     }
 
