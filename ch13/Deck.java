@@ -2,7 +2,7 @@ import java.util.Arrays;
 import java.util.Random;
 
 /**
- * A deck of playing cards (of fixed size).
+ * A deck of playing cards (of fixed length).
  */
 public class Deck {
 
@@ -104,16 +104,17 @@ public class Deck {
     }
 
     /**
-     * Returns a sorted copy of the deck using merge sort.
+     * Returns a sorted copy of the deck using selection sort.
      */
-    public Deck mergeSort() {
+    public Deck almostMergeSort() {
         return this;
     }
 
     /**
-     * Reorders the cards (in place) using insertion sort.
+     * Returns a sorted copy of the deck using merge sort.
      */
-    public void insertionSort() {
+    public Deck mergeSort() {
+        return this;
     }
 
 }
