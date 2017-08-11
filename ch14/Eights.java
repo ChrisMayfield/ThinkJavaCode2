@@ -67,7 +67,7 @@ public class Eights {
     /**
      * Returns a card from the draw pile.
      */
-    public Card draw() {
+    public Card drawCard() {
         if (drawPile.empty()) {
             reshuffle();
         }
@@ -94,12 +94,6 @@ public class Eights {
         discardPile.display();
         System.out.print("Draw pile: ");
         System.out.println(drawPile.size() + " cards");
-    }
-
-    /**
-     * Waits for the user to press enter.
-     */
-    public void waitForUser() {
         in.nextLine();
     }
 
@@ -107,7 +101,7 @@ public class Eights {
      * One player takes a turn.
      */
     public void takeTurn(Player player) {
-        Card prev = discardPile.last();
+        Card prev = discardPile.lastCard();
         Card next = player.play(this, prev);
         discardPile.addCard(next);
 
@@ -124,7 +118,6 @@ public class Eights {
         // keep playing until there's a winner
         while (!isDone()) {
             displayState();
-            waitForUser();
             takeTurn(player);
             player = nextPlayer(player);
         }

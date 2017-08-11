@@ -88,7 +88,7 @@ public class CardCollection {
     /**
      * Returns the last card.
      */
-    public Card last() {
+    public Card lastCard() {
         int i = size() - 1;
         return cards.get(i);
     }
