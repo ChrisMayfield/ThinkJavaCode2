@@ -22,8 +22,8 @@ public class Search {
      * Displays the given deck of cards.
      */
     public static void printDeck(Card[] cards) {
-        for (int i = 0; i < cards.length; i++) {
-            System.out.println(cards[i]);
+        for (Card card : cards) {
+            System.out.println(card);
         }
     }
 
