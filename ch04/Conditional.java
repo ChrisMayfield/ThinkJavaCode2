@@ -4,10 +4,6 @@
 public class Conditional {
 
     public static void main(String[] args) {
-        String fruit1 = "Apple";
-        String fruit2 = "Orange";
-        System.out.println(fruit1.equals(fruit2));
-
         int x = 17;
         int n = 18;
 
@@ -29,13 +25,13 @@ public class Conditional {
             System.out.println("x is zero");
         }
 
-        if (x == 0) {
-            System.out.println("x is zero");
+        if (x > 0) {
+            System.out.println("x is positive");
         } else {
-            if (x > 0) {
-                System.out.println("x is positive");
-            } else {
+            if (x < 0) {
                 System.out.println("x is negative");
+            } else {
+                System.out.println("x is zero");
             }
         }
 
