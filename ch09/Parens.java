@@ -1,7 +1,7 @@
 /**
  * Exercise on encapsulation and generalization.
  */
-public class Exercise {
+public class Parens {
 
     public static void main(String[] args) {
         String s = "((3 + 7) * 2)";
