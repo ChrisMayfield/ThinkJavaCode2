@@ -15,6 +15,10 @@ public class PointRect {
         System.out.println(blank.x + ", " + blank.y);
         int sum = blank.x * blank.x + blank.y * blank.y;
 
+        Point p1 = new Point(0, 0);
+        Point p2 = new Point(3, 4);
+        double dist = p1.distance(p2);  // dist is 5.0
+
         Rectangle box = new Rectangle(0, 0, 100, 200);
         moveRect(box, 50, 100);
         System.out.println(box);
