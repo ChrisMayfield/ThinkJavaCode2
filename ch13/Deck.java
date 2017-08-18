@@ -40,8 +40,8 @@ public class Deck {
      * Displays each of the cards in the deck.
      */
     public void print() {
-        for (int i = 0; i < this.cards.length; i++) {
-            System.out.println(this.cards[i]);
+        for (Card card : this.cards) {
+            System.out.println(card);
         }
     }
 
@@ -117,4 +117,9 @@ public class Deck {
         return this;
     }
 
+    /**
+     * Reorders the cards (in place) using insertion sort.
+     */
+    public void insertionSort() {
+    }
 }
