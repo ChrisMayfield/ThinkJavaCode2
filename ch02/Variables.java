@@ -1,6 +1,3 @@
-/**
- * Examples from Chapter 2.
- */
 public class Variables {
 
     public static void main(String[] args) {
@@ -69,15 +66,6 @@ public class Variables {
 
         System.out.println("Hello" + 1 + 2);
         // the output is Hello12
-
-        System.out.println(17 * 3);
-        System.out.println(hour * 60 + minute);
-
-        int percentage;
-        percentage = (minute * 100) / 60;
-
-        hour = minute + 1;  // correct
-        // minute + 1 = hour;  // compiler error
     }
 
 }
