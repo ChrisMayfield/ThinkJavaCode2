@@ -43,19 +43,3 @@ public class Tables {
     }
 
 }
-
-
-    public static void printTable4(int rows) {
-        for (int i = 1; i <= rows; i = i + 1) {
-            printRow3(i, rows);
-        }
-    }
-
-    public static void printRow4(int n, int cols) {
-        int i;
-        for (i = 1; i <= cols; i = i + 1) {
-            System.out.printf("%4d", n * i);
-        }
-        System.out.println(i);
-    }
-

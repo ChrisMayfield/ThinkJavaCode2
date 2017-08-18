@@ -3,10 +3,6 @@
  */
 public class Series {
 
-    public static boolean isSingleDigit(int x) {
-        return x > -10 && x < 10;
-    }
-
     public static int factorial(int n) {
         if (n == 0) {
             return 1;
@@ -24,13 +20,6 @@ public class Series {
     }
 
     public static void main(String[] args) {
-
-        int z = 9;
-        if (isSingleDigit(z)) {
-            System.out.println("z is small");
-        } else {
-            System.out.println("z is big");
-        }
 
         System.out.println("factorial");
         System.out.println(factorial(3));

@@ -3,14 +3,6 @@
  */
 public class Circle {
 
-    public static double absoluteValue(double x) {
-        if (x < 0) {
-            return -x;
-        } else {
-            return x;
-        }
-    }
-
     public static double calculateArea(double radius) {
         double result = Math.PI * radius * radius;
         return result;
@@ -60,9 +52,6 @@ public class Circle {
     }
 
     public static void main(String[] args) {
-
-        System.out.println("absolute value");
-        System.out.println(absoluteValue(-2));
 
         System.out.println("calculateArea");
         System.out.println(calculateArea(3.0));

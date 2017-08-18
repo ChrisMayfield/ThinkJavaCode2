@@ -1,9 +1,12 @@
+/**
+ * Example switch statement with cases that fall through.
+ */
 public class Vowels {
 
     public static void main(String[] args) {
         String s = "Ahoy!";
         for (int i = 0; i < s.length(); i++) {
-            
+
             // display the next character
             char c = s.charAt(i);
             System.out.print(c + " is a ");
@@ -39,4 +42,5 @@ public class Vowels {
             }
         }
     }
+
 }
