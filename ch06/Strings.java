@@ -1,7 +1,7 @@
 /**
  * Demonstates uses of Strings.
  */
-public class StringsThings {
+public class Strings {
 
     public static void main(String[] args) {
 
@@ -26,22 +26,10 @@ public class StringsThings {
         }
         System.out.println();
 
-        // Strings are immutable
-
-        String name = "Alan Turing";
-        String upperName = name.toUpperCase();
-
-        String text = "Computer Science is fun!";
-        text = text.replace("Computer Science", "CS");
-
-        // String traversal
+        // String iteration
 
         for (int i = 0; i < fruit.length(); i++) {
             char letter = fruit.charAt(i);
-            System.out.println(letter);
-        }
-
-        for (char letter : fruit.toCharArray()) {
             System.out.println(letter);
         }
 
@@ -49,16 +37,6 @@ public class StringsThings {
         char last = fruit.charAt(length - 1);  // correct
 
         System.out.println(reverse(fruit));
-
-        // Substrings
-
-        System.out.println(fruit.substring(0));
-        System.out.println(fruit.substring(2));
-        System.out.println(fruit.substring(6));
-
-        System.out.println(fruit.substring(0, 3));
-        System.out.println(fruit.substring(2, 5));
-        System.out.println(fruit.substring(6, 6));
 
         // The indexOf method
 
@@ -82,13 +60,16 @@ public class StringsThings {
             System.out.println("name2 comes before name1.");
         }
 
-        // Wrapper classes
+        // Substrings
 
-        String str = "12345";
-        int num = Integer.parseInt(str);
+        System.out.println(fruit.substring(0));
+        System.out.println(fruit.substring(2));
+        System.out.println(fruit.substring(6));
 
-        num = 12345;
-        str = Integer.toString(num);
+        System.out.println(fruit.substring(0, 3));
+        System.out.println(fruit.substring(2, 5));
+        System.out.println(fruit.substring(6, 6));
+
     }
 
     /**
