@@ -41,7 +41,7 @@ public class Time {
      */
     public String toString() {
         return String.format("%02d:%02d:%04.1f\n",
-                             this.hour, this.minute, this.second);
+            this.hour, this.minute, this.second);
     }
 
     /**
@@ -72,7 +72,6 @@ public class Time {
         sum.hour = this.hour + t2.hour;
         sum.minute = this.minute + t2.minute;
         sum.second = this.second + t2.second;
-
         if (sum.second >= 60.0) {
             sum.second -= 60.0;
             sum.minute += 1;
