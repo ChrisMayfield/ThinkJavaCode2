@@ -4,17 +4,11 @@ public class Recursion {
         System.out.println("countdown");
         countdown(3);
 
-        System.out.println("countup");
-        countup(3);
-
-        System.out.println("newLine");
-        newLine();
-
         System.out.println("nLines");
         nLines(3);
 
-        System.out.println("threeLine");
-        threeLine();
+        System.out.println("countup");
+        countup(3);
 
         System.out.println("displayBinary");
         displayBinary(23);
@@ -32,12 +26,6 @@ public class Recursion {
 
     public static void newLine() {
         System.out.println();
-    }
-
-    public static void threeLine() {
-        newLine();
-        newLine();
-        newLine();
     }
 
     public static void nLines(int n) {

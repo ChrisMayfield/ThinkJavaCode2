@@ -1,4 +1,7 @@
-public class Recursive {
+/**
+ * Stack diagram exercise.
+ */
+public class Exercise {
 
     public static void main(String[] args) {
         System.out.println(prod(1, 4));

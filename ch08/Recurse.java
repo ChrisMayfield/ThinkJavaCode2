@@ -1,5 +1,5 @@
 /**
- * Recursion exercise.
+ * Palindrome exercise.
  */
 public class Recurse {
 

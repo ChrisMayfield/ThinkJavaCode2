@@ -3,30 +3,7 @@
  */
 public class Series {
 
-    public static void countup(int n) {
-        if (n == 0) {
-            System.out.println("Blastoff!");
-        } else {
-            countup(n - 1);
-            System.out.println(n);
-        }
-    }
-
-    /**
-     * Tests whether x is a single digit integer.
-     *
-     * @param x the integer to test
-     * @return true if x has one digit, false otherwise
-     */
     public static boolean isSingleDigit(int x) {
-        if (x > -10 && x < 10) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    public static boolean isSingleDigit2(int x) {
         return x > -10 && x < 10;
     }
 
@@ -47,12 +24,6 @@ public class Series {
     }
 
     public static void main(String[] args) {
-
-        countup(3);
-        System.out.println("Have a nice day.");
-
-        System.out.println(isSingleDigit(2));
-        boolean bigFlag = !isSingleDigit2(17);
 
         int z = 9;
         if (isSingleDigit(z)) {
