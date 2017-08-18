@@ -1,5 +1,8 @@
 import java.util.Scanner;
 
+/**
+ * Inputs two lines and repeats them back to the user.
+ */
 public class Echo {
 
     public static void main(String[] args) {
