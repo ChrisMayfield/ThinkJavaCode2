@@ -1,5 +1,5 @@
 /**
- * Examples from Chapter 4.
+ * Examples from Chapter 5.
  */
 public class Conditional {
 

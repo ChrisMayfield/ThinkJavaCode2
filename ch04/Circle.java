@@ -1,6 +1,3 @@
-/**
- * Examples from Chapter 5.
- */
 public class Circle {
 
     public static double calculateArea(double radius) {

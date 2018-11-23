@@ -1,5 +1,9 @@
 public class Baffle {
 
+    public static void main(String[] args) {
+        zippo("rattle", 13);
+    }
+
     public static void baffle(String blimp) {
         System.out.println(blimp);
         zippo("ping", -5);
@@ -13,10 +17,6 @@ public class Baffle {
             baffle(quince);
             System.out.println("boo-wa-ha-ha");
         }
-    }
-
-    public static void main(String[] args) {
-        zippo("rattle", 13);
     }
 
 }
