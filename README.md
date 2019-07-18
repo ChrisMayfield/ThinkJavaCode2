@@ -1,7 +1,7 @@
 # ThinkJavaCode2
 Supporting code for Think Java, 2nd edition.
-Copyright (c) 2017 Allen Downey and Chris Mayfield.
-**This new edition is a work in progress and won't be completed until May 2019.**
+Copyright (c) 2019 Allen Downey and Chris Mayfield.
+**This new edition is a work in progress and won't be completed until Fall 2019.**
 
 This repository contains the code examples from the book and starter code for some exercises.
 There are several ways you can work with the code:
