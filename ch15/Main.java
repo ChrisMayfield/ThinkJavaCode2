@@ -14,6 +14,7 @@ public class Main {
 
         // set up the drawing and add actors
         Drawing drawing = new Drawing(800, 600);
+        drawing.add(new Triangle(25, 25, 25, 325, 425, 25));
 
         // set up the window frame
         JFrame frame = new JFrame("Drawing");
