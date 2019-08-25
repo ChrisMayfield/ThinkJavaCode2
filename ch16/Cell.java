@@ -6,13 +6,16 @@ import java.awt.Graphics;
  */
 public class Cell {
 
+    public static final Color OFF = Color.WHITE;
+    public static final Color ON = Color.BLACK;
+
     private final int x;
     private final int y;
     private final int size;
     private Color color;
 
     /**
-     * Constructs a new cell.
+     * Constructs a new cell, initially turned off.
      * 
      * @param x the X coordinate
      * @param y the Y coordinate
@@ -22,14 +25,19 @@ public class Cell {
         this.x = x;
         this.y = y;
         this.size = size;
-        this.color = Color.WHITE;
+        this.color = OFF;
     }
 
     /**
-     * @return true if the cell is alive
+     * Paints the cell on the screen.
+     * 
+     * @param g graphics context
      */
-    public boolean alive() {
-        return this.color == Color.BLACK;
+    public void draw(Graphics g) {
+        g.setColor(this.color);
+        g.fillRect(this.x + 1, this.y + 1, this.size - 1, this.size - 1);
+        g.setColor(Color.LIGHT_GRAY);
+        g.drawRect(this.x, this.y, this.size, this.size);
     }
 
     /**
@@ -47,15 +55,31 @@ public class Cell {
     }
 
     /**
-     * Paints the cell on the screen.
-     * 
-     * @param g graphics context
+     * @return true if the cell is on
      */
-    public void draw(Graphics g) {
-        g.setColor(this.color);
-        g.fillRect(this.x + 1, this.y + 1, this.size - 1, this.size - 1);
-        g.setColor(Color.LIGHT_GRAY);
-        g.drawRect(this.x, this.y, this.size, this.size);
+    public boolean isOff() {
+        return this.color == OFF;
+    }
+
+    /**
+     * @return true if the cell is off
+     */
+    public boolean isOn() {
+        return this.color == ON;
+    }
+
+    /**
+     * Sets the cell's color to OFF.
+     */
+    public void turnOff() {
+        this.color = OFF;
+    }
+
+    /**
+     * Sets the cell's color to ON.
+     */
+    public void turnOn() {
+        this.color = ON;
     }
 
 }

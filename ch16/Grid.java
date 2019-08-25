@@ -1,9 +1,8 @@
 import java.awt.Canvas;
-import java.awt.Color;
 import java.awt.Graphics;
 
 /**
- * 2D array of cells.
+ * Drawing of a 2D array of cells.
  */
 public class Grid extends Canvas {
 
@@ -42,12 +41,12 @@ public class Grid extends Canvas {
      * @param r row index
      * @param c column index
      */
-    public void flip(int r, int c) {
+    public void toggle(int r, int c) {
         Cell cell = array[r][c];
-        if (cell.alive()) {
-            cell.setColor(Color.WHITE);
+        if (cell.isOff()) {
+            cell.turnOn();
         } else {
-            cell.setColor(Color.BLACK);
+            cell.turnOff();
         }
     }
 
@@ -58,39 +57,39 @@ public class Grid extends Canvas {
      * @param c column index
      * @return number of live neighbors
      */
-    public int countLive(int r, int c) {
+    public int countAlive(int r, int c) {
         int count = 0;
 
         // previous row
         if (r > 0) {
-            if (c > 0 && array[r - 1][c - 1].alive()) {
+            if (c > 0 && array[r - 1][c - 1].isOn()) {
                 count++;
             }
-            if (array[r - 1][c].alive()) {
+            if (array[r - 1][c].isOn()) {
                 count++;
             }
-            if (c < cols - 1 && array[r - 1][c + 1].alive()) {
+            if (c < cols - 1 && array[r - 1][c + 1].isOn()) {
                 count++;
             }
         }
 
         // current row
-        if (c > 0 && array[r][c - 1].alive()) {
+        if (c > 0 && array[r][c - 1].isOn()) {
             count++;
         }
-        if (c < cols - 1 && array[r][c + 1].alive()) {
+        if (c < cols - 1 && array[r][c + 1].isOn()) {
             count++;
         }
 
         // next row
         if (r < rows - 1) {
-            if (c > 0 && array[r + 1][c - 1].alive()) {
+            if (c > 0 && array[r + 1][c - 1].isOn()) {
                 count++;
             }
-            if (array[r + 1][c].alive()) {
+            if (array[r + 1][c].isOn()) {
                 count++;
             }
-            if (c < cols - 1 && array[r + 1][c + 1].alive()) {
+            if (c < cols - 1 && array[r + 1][c + 1].isOn()) {
                 count++;
             }
         }
@@ -105,25 +104,25 @@ public class Grid extends Canvas {
      * @param count number of live neighbors
      */
     public void updateCell(Cell cell, int count) {
-        if (cell.alive()) {
+        if (cell.isOn()) {
             if (count < 2) {
                 // Any live cell with fewer than two live neighbors dies,
                 // as if by underpopulation.
-                cell.setColor(Color.WHITE);
+                cell.turnOff();
             } else if (count > 3) {
                 // Any live cell with more than three live neighbors dies,
                 // as if by overpopulation.
-                cell.setColor(Color.WHITE);
+                cell.turnOff();
             } else {
                 // Any live cell with two or three live neighbors lives on
                 // to the next generation.
-                cell.setColor(Color.BLACK);
+                cell.turnOn();
             }
         } else {
             if (count == 3) {
                 // Any dead cell with exactly three live neighbors
                 // becomes a live cell, as if by reproduction.
-                cell.setColor(Color.BLACK);
+                cell.turnOn();
             }
         }
     }
@@ -133,19 +132,18 @@ public class Grid extends Canvas {
      */
     public void playGame() {
 
-        // count neighbors
+        // count neighbors before changing anything
         int[][] counts = new int[rows][cols];
         for (int r = 0; r < rows; r++) {
             for (int c = 0; c < cols; c++) {
-                counts[r][c] = countLive(r, c);
+                counts[r][c] = countAlive(r, c);
             }
         }
 
-        // update cells
+        // update each cell based on neighbor counts
         for (int r = 0; r < rows; r++) {
             for (int c = 0; c < cols; c++) {
-                Cell cell = array[r][c];
-                updateCell(cell, counts[r][c]);
+                updateCell(array[r][c], counts[r][c]);
             }
         }
     }
@@ -155,6 +153,7 @@ public class Grid extends Canvas {
      * 
      * @param g graphics context
      */
+    @Override
     public void paint(Graphics g) {
         for (Cell[] row : array) {
             for (Cell cell : row) {
@@ -164,11 +163,13 @@ public class Grid extends Canvas {
     }
 
     /**
-     * Overriding this method makes the simulation more smooth, because the
-     * Canvas does not need to be cleared before redrawing.
+     * Overriding this method helps the simulation run more smoothly. Normally
+     * the Canvas is cleared before painting, but there is no need to clear it
+     * since paint draws the entire grid.
      * 
      * @param g graphics context
      */
+    @Override
     public void update(Graphics g) {
         paint(g);
     }

@@ -1,12 +1,12 @@
 import javax.swing.JFrame;
 
 /**
- * Example simulation of moving objects.
+ * Example simulation of Conway's Game of Life.
  */
 public class Main {
 
     /**
-     * Sets up the drawing, creates the actors, and runs the simulation.
+     * Sets up the drawing, creates the frame, and plays the game.
      * 
      * @param args command-line arguments
      */
@@ -14,14 +14,14 @@ public class Main {
 
         // set up the grid and initialize cells
         Grid grid = new Grid(30, 25, 20);
-        grid.flip(1, 2);
-        grid.flip(2, 2);
-        grid.flip(3, 2);
-        grid.flip(6, 1);
-        grid.flip(7, 2);
-        grid.flip(7, 3);
-        grid.flip(8, 1);
-        grid.flip(8, 2);
+        grid.toggle(1, 2);
+        grid.toggle(2, 2);
+        grid.toggle(3, 2);
+        grid.toggle(6, 1);
+        grid.toggle(7, 2);
+        grid.toggle(7, 3);
+        grid.toggle(8, 1);
+        grid.toggle(8, 2);
 
         // set up the window frame
         JFrame frame = new JFrame("Drawing");
