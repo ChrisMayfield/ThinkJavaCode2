@@ -15,6 +15,7 @@ public class Main {
         // set up the drawing and add actors
         Drawing drawing = new Drawing(800, 600);
         drawing.add(new Triangle(25, 25, 25, 325, 425, 25));
+        drawing.add(new Triangle(500, 400, 530, 400, 500, 440));
 
         // set up the window frame
         JFrame frame = new JFrame("Drawing");
@@ -27,7 +28,7 @@ public class Main {
         while (true) {
 
             // update the drawing
-            drawing.action();
+            drawing.nextact();
             drawing.repaint();
 
             // delay the simulation

@@ -2,13 +2,14 @@ import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Draws a collection of actors.
  */
 public class Drawing extends Canvas {
 
-    private ArrayList<Actor> actors;
+    private List<Actor> actors;
 
     /**
      * Constructs a drawing of given size.
@@ -18,7 +19,7 @@ public class Drawing extends Canvas {
      */
     public Drawing(int width, int height) {
         setSize(width, height);
-        setBackground(Color.white);
+        setBackground(Color.WHITE);
         actors = new ArrayList<Actor>();
     }
 
@@ -34,7 +35,7 @@ public class Drawing extends Canvas {
     /**
      * Calls the act method of each actor.
      */
-    public void action() {
+    public void nextact() {
         for (Actor actor : actors) {
             actor.act();
         }

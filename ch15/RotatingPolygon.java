@@ -1,44 +1,66 @@
 import java.awt.Graphics;
 import java.awt.Polygon;
+import java.util.Arrays;
 
 /**
  * A polygon that rotates each time act is called.
  */
-public abstract class RotatingPolygon extends Polygon implements Actor {
+public class RotatingPolygon extends Polygon implements Actor {
 
     private int xmid;
     private int ymid;
+
+    private int angle; // in degrees
+
+    private int[] x0; // original xpoints
+    private int[] y0; // original ypoints
 
     /**
      * Sets the rotation point to the middle.
      */
     public void center() {
+
+        // find the average x and y values
+        int xsum = 0;
+        int ysum = 0;
         for (int x : xpoints) {
-            xmid += x;
+            xsum += x;
         }
-        xmid /= npoints;
         for (int y : ypoints) {
-            ymid += y;
+            ysum += y;
         }
-        ymid /= npoints;
+        this.xmid = (int) Math.round(xsum / npoints);
+        this.ymid = (int) Math.round(ysum / npoints);
+
+        // reset the rotation direction
+        this.angle = 359;
+
+        // save the original x and y points
+        x0 = Arrays.copyOf(xpoints, npoints);
+        y0 = Arrays.copyOf(ypoints, npoints);
     }
 
     /**
-     * Rotates the triangle around its center point.
+     * Rotates the polygon around its center.
      */
     public void act() {
-        final double COS = Math.cos(Math.PI / 180);
-        final double SIN = Math.sin(Math.PI / 180);
+        // update the rotation angle
+        angle = (angle + 1) % 360;
+        final double RAD = Math.toRadians(angle);
+        final double COS = Math.cos(RAD);
+        final double SIN = Math.sin(RAD);
+
+        // translate the polygon points
         for (int i = 0; i < npoints; i++) {
-            double t = xpoints[i] - xmid;
-            double v = ypoints[i] - ymid;
-            xpoints[i] = (int) (xmid + t * COS - v * SIN);
-            ypoints[i] = (int) (ymid + v * COS + t * SIN);
+            double t = x0[i] - xmid;
+            double v = y0[i] - ymid;
+            xpoints[i] = (int) Math.round(xmid + t * COS - v * SIN);
+            ypoints[i] = (int) Math.round(ymid + t * SIN + v * COS);
         }
     }
 
     /**
-     * Paints the triangle on the screen.
+     * Paints the polygon on the screen.
      * 
      * @param g graphics context
      */

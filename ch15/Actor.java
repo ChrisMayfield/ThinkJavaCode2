@@ -1,7 +1,7 @@
 import java.awt.Graphics;
 
 /**
- * Simulation element.
+ * Graphical simulation element.
  */
 public interface Actor {
 
