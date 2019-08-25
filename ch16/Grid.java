@@ -1,13 +1,13 @@
-import java.awt.Canvas;
 import java.awt.Graphics;
 
 /**
- * Drawing of a 2D array of cells.
+ * 2D array of cells that represent Conway's Game of Life.
  */
-public class Grid extends Canvas {
+public class Grid {
 
     private final int rows;
     private final int cols;
+    private final int size;
 
     /** Cells stored in row-major order. */
     private Cell[][] array;
@@ -21,18 +21,31 @@ public class Grid extends Canvas {
      */
     public Grid(int rows, int cols, int size) {
 
-        // build 2D array of cells
+        // store the configuration
         this.rows = rows;
         this.cols = cols;
+        this.size = size;
+
+        // build 2D array of cells
         this.array = new Cell[rows][cols];
         for (int r = 0; r < rows; r++) {
             for (int c = 0; c < cols; c++) {
                 this.array[r][c] = new Cell(c * size, r * size, size);
             }
         }
+    }
 
-        // initialize the display
-        setSize(cols * size, rows * size);
+    /**
+     * Paints the grid on the screen.
+     * 
+     * @param g graphics context
+     */
+    public void draw(Graphics g) {
+        for (Cell[] row : array) {
+            for (Cell cell : row) {
+                cell.draw(g);
+            }
+        }
     }
 
     /**
@@ -41,13 +54,27 @@ public class Grid extends Canvas {
      * @param r row index
      * @param c column index
      */
-    public void toggle(int r, int c) {
+    public void flip(int r, int c) {
         Cell cell = array[r][c];
         if (cell.isOff()) {
             cell.turnOn();
         } else {
             cell.turnOff();
         }
+    }
+
+    /**
+     * @return total height of the grid
+     */
+    public int height() {
+        return rows * size;
+    }
+
+    /**
+     * @return total width of the grid
+     */
+    public int width() {
+        return cols * size;
     }
 
     /**
@@ -130,7 +157,7 @@ public class Grid extends Canvas {
     /**
      * Simulates one round of Conway's Game of Life.
      */
-    public void playGame() {
+    public void update() {
 
         // count neighbors before changing anything
         int[][] counts = new int[rows][cols];
@@ -146,32 +173,6 @@ public class Grid extends Canvas {
                 updateCell(array[r][c], counts[r][c]);
             }
         }
-    }
-
-    /**
-     * Draws the grid, cell by cell.
-     * 
-     * @param g graphics context
-     */
-    @Override
-    public void paint(Graphics g) {
-        for (Cell[] row : array) {
-            for (Cell cell : row) {
-                cell.draw(g);
-            }
-        }
-    }
-
-    /**
-     * Overriding this method helps the simulation run more smoothly. Normally
-     * the Canvas is cleared before painting, but there is no need to clear it
-     * since paint draws the entire grid.
-     * 
-     * @param g graphics context
-     */
-    @Override
-    public void update(Graphics g) {
-        paint(g);
     }
 
 }
