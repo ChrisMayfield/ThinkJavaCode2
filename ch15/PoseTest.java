@@ -27,8 +27,8 @@ public class PoseTest {
     public void testToString() {
         Pose p1 = new Pose(1, 3, 45);
         Pose p2 = new Pose(5, 7, 90);
-        assertEquals("(1, 3) @45", p1.toString());
-        assertEquals("(5, 7) @90", p2.toString());
+        assertEquals("(1.0, 3.0) @45.0", p1.toString());
+        assertEquals("(5.0, 7.0) @90.0", p2.toString());
     }
 
 }

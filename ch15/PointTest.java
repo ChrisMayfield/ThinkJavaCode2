@@ -6,8 +6,6 @@ import org.junit.Test;
  */
 public class PointTest {
 
-    public static final double DELTA = 0.001;
-
     /**
      * Tests the distance method.
      */
@@ -15,8 +13,8 @@ public class PointTest {
     public void testDistance() {
         Point p1 = new Point(0, 0);
         Point p2 = new Point(3, 4);
-        assertEquals(0.0, p1.distance(p1), DELTA);
-        assertEquals(5.0, p1.distance(p2), DELTA);
+        assertEquals(0.0, p1.distance(p1), Point.DELTA);
+        assertEquals(5.0, p1.distance(p2), Point.DELTA);
     }
 
     /**
@@ -40,8 +38,8 @@ public class PointTest {
     public void testToString() {
         Point p1 = new Point(0, 0);
         Point p2 = new Point(3, 4);
-        assertEquals("(0, 0)", p1.toString());
-        assertEquals("(3, 4)", p2.toString());
+        assertEquals("(0.0, 0.0)", p1.toString());
+        assertEquals("(3.0, 4.0)", p2.toString());
     }
 
 }

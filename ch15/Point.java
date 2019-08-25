@@ -3,8 +3,10 @@
  */
 public class Point {
 
-    private final int x;
-    private final int y;
+    public static final double DELTA = 0.001;
+
+    private final double x;
+    private final double y;
 
     /**
      * Constructs a point at the given location.
@@ -12,7 +14,7 @@ public class Point {
      * @param x the X coordinate
      * @param y the Y coordinate
      */
-    public Point(int x, int y) {
+    public Point(double x, double y) {
         this.x = x;
         this.y = y;
     }
@@ -20,14 +22,14 @@ public class Point {
     /**
      * @return the X coordinate
      */
-    public int getX() {
+    public double getX() {
         return x;
     }
 
     /**
      * @return the Y coordinate
      */
-    public int getY() {
+    public double getY() {
         return y;
     }
 
@@ -38,8 +40,8 @@ public class Point {
      * @return Euclidean distance
      */
     public double distance(Point pt) {
-        int dx = this.x - pt.x;
-        int dy = this.y - pt.y;
+        double dx = this.x - pt.x;
+        double dy = this.y - pt.y;
         return Math.sqrt(dx * dx + dy * dy);
     }
 
@@ -52,7 +54,7 @@ public class Point {
     public boolean equals(Object obj) {
         if (obj instanceof Point) {
             Point pt = (Point) obj;
-            return this.x == pt.x && this.y == pt.y;
+            return distance(pt) < DELTA;
         }
         return super.equals(obj);
     }
@@ -61,7 +63,7 @@ public class Point {
      * @return string representation of the point
      */
     public String toString() {
-        return "(" + this.x + ", " + this.y + ")";
+        return String.format("(%.1f, %.1f)", this.x, this.y);
     }
 
 }

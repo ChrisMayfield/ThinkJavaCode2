@@ -3,7 +3,7 @@
  */
 public class Pose extends Point {
 
-    private final int heading;
+    private final double heading;
 
     /**
      * Constructs a pose at the given location.
@@ -12,7 +12,7 @@ public class Pose extends Point {
      * @param y the Y coordinate
      * @param heading the heading
      */
-    public Pose(int x, int y, int heading) {
+    public Pose(double x, double y, double heading) {
         super(x, y);
         this.heading = heading;
     }
@@ -28,7 +28,7 @@ public class Pose extends Point {
      * @return string representation of the pose
      */
     public String toString() {
-        return String.format("%s @%d", super.toString(), this.heading);
+        return String.format("%s @%.1f", super.toString(), this.heading);
     }
 
 }
