@@ -11,7 +11,7 @@ public interface Actor {
     void act();
 
     /**
-     * Paints the simulation element in the context.
+     * Draws the simulation element in the context.
      * 
      * @param g graphics context
      */

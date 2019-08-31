@@ -1,9 +1,9 @@
 import javax.swing.JFrame;
 
 /**
- * Example simulation of moving objects.
+ * Example simulation of rotating objects.
  */
-public class Main {
+public class Sim2 {
 
     /**
      * Sets up the drawing, creates the actors, and runs the simulation.
