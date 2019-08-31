@@ -73,7 +73,7 @@ public class RegularPolygon extends Polygon implements Actor {
 
     @Override
     public void draw(Graphics g) {
-        System.out.println(this);
+        // System.out.println(this);
         g.drawPolygon(this);
     }
 
