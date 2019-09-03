@@ -80,6 +80,25 @@ public class RegularPolygon extends Polygon implements Actor {
     }
 
     @Override
+    public void act() {
+        // nothing to do
+    }
+
+    @Override
+    public void draw(Graphics g) {
+        // System.out.println(this);
+        g.setColor(color);
+        g.fillPolygon(this);
+    }
+
+    /**
+     * @param color the new color
+     */
+    public void setColor(Color color) {
+        this.color = color;
+    }
+
+    @Override
     public String toString() {
         StringBuilder str = new StringBuilder();
         if (npoints < NAMES.length) {
@@ -102,18 +121,6 @@ public class RegularPolygon extends Polygon implements Actor {
         }
         str.append(']');
         return str.toString();
-    }
-
-    @Override
-    public void act() {
-        // nothing to do
-    }
-
-    @Override
-    public void draw(Graphics g) {
-        // System.out.println(this);
-        g.setColor(color);
-        g.fillPolygon(this);
     }
 
 }

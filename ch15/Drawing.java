@@ -33,6 +33,15 @@ public class Drawing extends Canvas {
     }
 
     /**
+     * Gets current actors as an array.
+     * 
+     * @return array of actor objects
+     */
+    public Object[] getActors() {
+        return actors.toArray();
+    }
+
+    /**
      * Calls the act method of each actor.
      */
     public void nextact() {
