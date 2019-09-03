@@ -1,7 +1,9 @@
+import java.awt.Polygon;
+
 /**
  * A three-sided polygon.
  */
-public class Triangle extends RotatingPolygon {
+public class Triangle extends Polygon {
 
     /**
      * Constructs a triangle at the given points.
@@ -26,7 +28,6 @@ public class Triangle extends RotatingPolygon {
         xpoints = new int[] {ax, bx, cx};
         ypoints = new int[] {ay, by, cy};
         npoints = 3;
-        center();
     }
 
     /**
