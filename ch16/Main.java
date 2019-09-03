@@ -1,3 +1,4 @@
+import java.awt.Toolkit;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
@@ -92,23 +93,25 @@ public class Main {
      */
     public static void main(String[] args) {
 
-        // create the grid
+        // create the grid drawing
         Grid grid;
         if (args.length != 1) {
             grid = example();
         } else {
             grid = readFile(args[0]);
         }
-
-        // set up the drawing
         Drawing drawing = new Drawing(grid);
+
+        // set up the window frame
         JFrame frame = new JFrame("Drawing");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setResizable(false);
         frame.add(drawing);
         frame.pack();
         frame.setVisible(true);
 
         // main simulation loop
+        Toolkit toolkit = frame.getToolkit();
         while (true) {
 
             // update the drawing
@@ -118,6 +121,7 @@ public class Main {
             // delay the simulation
             try {
                 Thread.sleep(500);
+                toolkit.sync();
             } catch (InterruptedException e) {
                 // do nothing
             }
