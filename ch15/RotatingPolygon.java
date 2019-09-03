@@ -1,11 +1,9 @@
-import java.awt.Graphics;
-import java.awt.Polygon;
 import java.util.Arrays;
 
 /**
- * A polygon that rotates each time act is called.
+ * A polygon that rotates around its center.
  */
-public class RotatingPolygon extends Polygon implements Actor {
+public class RotatingPolygon extends RegularPolygon {
 
     private int xmid;
     private int ymid;
@@ -14,6 +12,17 @@ public class RotatingPolygon extends Polygon implements Actor {
 
     private int[] x0; // original xpoints
     private int[] y0; // original ypoints
+
+    /**
+     * Constructs a moving polygon.
+     * 
+     * @param nsides the number of sides
+     * @param length length of each side
+     */
+    public RotatingPolygon(int nsides, int length) {
+        super(nsides, length);
+        center();
+    }
 
     /**
      * Sets the rotation point to the middle.
@@ -40,9 +49,7 @@ public class RotatingPolygon extends Polygon implements Actor {
         y0 = Arrays.copyOf(ypoints, npoints);
     }
 
-    /**
-     * Rotates the polygon around its center.
-     */
+    @Override
     public void act() {
         // update the rotation angle
         angle = (angle + 1) % 360;
@@ -59,13 +66,10 @@ public class RotatingPolygon extends Polygon implements Actor {
         }
     }
 
-    /**
-     * Paints the polygon on the screen.
-     * 
-     * @param g graphics context
-     */
-    public void draw(Graphics g) {
-        g.fillPolygon(this);
+    @Override
+    public void translate(int deltaX, int deltaY) {
+        super.translate(deltaX, deltaY);
+        center();
     }
 
 }
