@@ -45,7 +45,7 @@ public class RegularPolygon extends Polygon implements Actor {
     public RegularPolygon(int nsides, int length, Color color) {
 
         // validate and store arguments
-        if (nsides < 3 || nsides >= 10) {
+        if (nsides < 3) {
             throw new IllegalArgumentException("invalid nsides");
         }
         if (length < 1) {
@@ -61,8 +61,8 @@ public class RegularPolygon extends Polygon implements Actor {
         this.ypoints = new int[nsides];
         this.color = color;
 
-        // radius of the polygon (distance from origin to vertex)
-        double radius = length / (2.0 * Math.sin(Math.PI / nsides));
+        // radius of the polygon (distance from center to vertex)
+        double radius = 0.5 * length / Math.sin(Math.PI / nsides);
 
         // the angle (in radians) at each vertex
         double angle = 2.0 * Math.PI / nsides;
@@ -82,7 +82,12 @@ public class RegularPolygon extends Polygon implements Actor {
     @Override
     public String toString() {
         StringBuilder str = new StringBuilder();
-        str.append(NAMES[npoints]);
+        if (npoints < NAMES.length) {
+            str.append(NAMES[npoints]);
+        } else {
+            str.append("Polygon");
+        }
+        // append the list of vertexes
         str.append('[');
         for (int i = 0; i < npoints; i++) {
             if (i > 0) {

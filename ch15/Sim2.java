@@ -1,3 +1,4 @@
+import java.awt.Toolkit;
 import javax.swing.JFrame;
 
 /**
@@ -34,6 +35,7 @@ public class Sim2 {
         frame.setVisible(true);
 
         // main simulation loop
+        Toolkit toolkit = frame.getToolkit();
         while (true) {
 
             // update the drawing
@@ -43,7 +45,7 @@ public class Sim2 {
             // delay the simulation
             try {
                 Thread.sleep(1000 / 60);
-                frame.getToolkit().sync();
+                toolkit.sync();
             } catch (InterruptedException e) {
                 // do nothing
             }

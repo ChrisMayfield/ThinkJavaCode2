@@ -1,6 +1,6 @@
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
 import javax.swing.JFrame;
 import javax.swing.Timer;
 
@@ -10,7 +10,7 @@ import javax.swing.Timer;
 public class Sim3 implements ActionListener {
 
     private Drawing drawing;
-    private JFrame frame;
+    private Toolkit toolkit;
 
     /**
      * Set up the drawing and window frame.
@@ -30,12 +30,13 @@ public class Sim3 implements ActionListener {
         drawing.add(rp);
 
         // set up the window frame
-        frame = new JFrame("Drawing");
+        JFrame frame = new JFrame("Drawing");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setResizable(false);
         frame.add(drawing);
         frame.pack();
         frame.setVisible(true);
+        toolkit = frame.getToolkit();
     }
 
     /**
@@ -53,7 +54,7 @@ public class Sim3 implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         drawing.nextact();
         drawing.repaint();
-        frame.getToolkit().sync();
+        toolkit.sync();
     }
 
 }

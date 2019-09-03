@@ -16,7 +16,7 @@ public class Sim1 {
         // create some regular polygons
         RegularPolygon p3 = new RegularPolygon(3, 100, Color.GREEN);
         RegularPolygon p4 = new RegularPolygon(4, 100, Color.ORANGE);
-        RegularPolygon p5 = new RegularPolygon(5, 100, Color.MAGENTA);
+        RegularPolygon p5 = new RegularPolygon(360, 1, Color.MAGENTA);
 
         // move them out of the corner
         p3.translate(100, 100);
