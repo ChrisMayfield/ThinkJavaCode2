@@ -1,43 +1,64 @@
 import java.awt.Canvas;
+import java.awt.Color;
 import java.awt.Graphics;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
- * Drawing of a grid.
+ * Draws a collection of actors.
  */
 public class Drawing extends Canvas {
 
-    private Grid grid;
+    private List<Actor> actors;
 
     /**
-     * Constructs a drawing for the grid.
+     * Constructs a drawing of given size.
      * 
-     * @param grid the initialized grid
+     * @param width the width in pixels
+     * @param height the height in pixels
      */
-    public Drawing(Grid grid) {
-        this.grid = grid;
-        setSize(grid.width(), grid.height());
+    public Drawing(int width, int height) {
+        setSize(width, height);
+        setBackground(Color.WHITE);
+        actors = new ArrayList<Actor>();
     }
 
     /**
-     * Draws the grid, cell by cell.
+     * Adds a new actor to the drawing.
+     * 
+     * @param actor the actor to add
+     */
+    public void add(Actor actor) {
+        actors.add(actor);
+    }
+
+    /**
+     * Gets current actors as an array.
+     * 
+     * @return array of actor objects
+     */
+    public Object[] getActors() {
+        return actors.toArray();
+    }
+
+    /**
+     * Calls the act method of each actor.
+     */
+    public void nextact() {
+        for (Actor actor : actors) {
+            actor.act();
+        }
+    }
+
+    /**
+     * Draws all the actors on the canvas.
      * 
      * @param g graphics context
      */
-    @Override
     public void paint(Graphics g) {
-        grid.draw(g);
-    }
-
-    /**
-     * Overriding this method helps the simulation run more smoothly. Normally
-     * the Canvas is cleared before painting, but there is no need to clear it
-     * since paint draws the entire grid.
-     * 
-     * @param g graphics context
-     */
-    @Override
-    public void update(Graphics g) {
-        grid.draw(g);
+        for (Actor actor : actors) {
+            actor.draw(g);
+        }
     }
 
 }
