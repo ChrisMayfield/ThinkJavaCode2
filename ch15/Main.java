@@ -115,7 +115,7 @@ public class Main {
         while (true) {
 
             // update the drawing
-            grid.update();
+            // grid.update();
             drawing.repaint();
 
             // delay the simulation

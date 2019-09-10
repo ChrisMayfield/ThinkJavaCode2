@@ -55,14 +55,14 @@ public class Cell {
     }
 
     /**
-     * @return true if the cell is on
+     * @return true if the cell is off
      */
     public boolean isOff() {
         return this.color == OFF;
     }
 
     /**
-     * @return true if the cell is off
+     * @return true if the cell is on
      */
     public boolean isOn() {
         return this.color == ON;

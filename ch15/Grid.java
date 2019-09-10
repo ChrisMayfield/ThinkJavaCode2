@@ -1,7 +1,7 @@
 import java.awt.Graphics;
 
 /**
- * 2D array of cells that represent Conway's Game of Life.
+ * 2D array of cells representing a game board.
  */
 public class Grid {
 
@@ -13,7 +13,7 @@ public class Grid {
     private Cell[][] array;
 
     /**
-     * Constructs a drawing of given size.
+     * Constructs a grid of given size.
      * 
      * @param rows number of rows
      * @param cols number of columns
@@ -49,7 +49,7 @@ public class Grid {
     }
 
     /**
-     * Toggles the cell color.
+     * Toggles the cell on/off.
      * 
      * @param r row index
      * @param c column index
@@ -64,6 +64,38 @@ public class Grid {
     }
 
     /**
+     * @param r row index
+     * @param c column index
+     * @return true if the cell is on
+     */
+    public boolean isOn(int r, int c) {
+        return array[r][c].isOn();
+    }
+
+    /**
+     * @param r row index
+     * @param c column index
+     * @return the cell
+     */
+    public Cell getCell(int r, int c) {
+        return array[r][c];
+    }
+
+    /**
+     * @return number of rows
+     */
+    public int getRows() {
+        return rows;
+    }
+
+    /**
+     * @return number of columns
+     */
+    public int getCols() {
+        return cols;
+    }
+
+    /**
      * @return total height of the grid
      */
     public int height() {
@@ -75,104 +107,6 @@ public class Grid {
      */
     public int width() {
         return cols * size;
-    }
-
-    /**
-     * Counts the number of live neighbors (without going out of bounds).
-     * 
-     * @param r row index
-     * @param c column index
-     * @return number of live neighbors
-     */
-    public int countAlive(int r, int c) {
-        int count = 0;
-
-        // previous row
-        if (r > 0) {
-            if (c > 0 && array[r - 1][c - 1].isOn()) {
-                count++;
-            }
-            if (array[r - 1][c].isOn()) {
-                count++;
-            }
-            if (c < cols - 1 && array[r - 1][c + 1].isOn()) {
-                count++;
-            }
-        }
-
-        // current row
-        if (c > 0 && array[r][c - 1].isOn()) {
-            count++;
-        }
-        if (c < cols - 1 && array[r][c + 1].isOn()) {
-            count++;
-        }
-
-        // next row
-        if (r < rows - 1) {
-            if (c > 0 && array[r + 1][c - 1].isOn()) {
-                count++;
-            }
-            if (array[r + 1][c].isOn()) {
-                count++;
-            }
-            if (c < cols - 1 && array[r + 1][c + 1].isOn()) {
-                count++;
-            }
-        }
-
-        return count;
-    }
-
-    /**
-     * Apply the rules of Conway's Game of Life.
-     * 
-     * @param cell the cell to update
-     * @param count number of live neighbors
-     */
-    public void updateCell(Cell cell, int count) {
-        if (cell.isOn()) {
-            if (count < 2) {
-                // Any live cell with fewer than two live neighbors dies,
-                // as if by underpopulation.
-                cell.turnOff();
-            } else if (count > 3) {
-                // Any live cell with more than three live neighbors dies,
-                // as if by overpopulation.
-                cell.turnOff();
-            } else {
-                // Any live cell with two or three live neighbors lives on
-                // to the next generation.
-                cell.turnOn();
-            }
-        } else {
-            if (count == 3) {
-                // Any dead cell with exactly three live neighbors
-                // becomes a live cell, as if by reproduction.
-                cell.turnOn();
-            }
-        }
-    }
-
-    /**
-     * Simulates one round of Conway's Game of Life.
-     */
-    public void update() {
-
-        // count neighbors before changing anything
-        int[][] counts = new int[rows][cols];
-        for (int r = 0; r < rows; r++) {
-            for (int c = 0; c < cols; c++) {
-                counts[r][c] = countAlive(r, c);
-            }
-        }
-
-        // update each cell based on neighbor counts
-        for (int r = 0; r < rows; r++) {
-            for (int c = 0; c < cols; c++) {
-                updateCell(array[r][c], counts[r][c]);
-            }
-        }
     }
 
 }
