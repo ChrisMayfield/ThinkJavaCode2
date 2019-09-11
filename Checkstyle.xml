@@ -23,7 +23,9 @@ Checkstyle configuration for Think Java, 2nd Edition.
         <module name="RightCurly"/>
 
         <!-- See http://checkstyle.sf.net/config_design.html -->
-        <module name="VisibilityModifier"/>
+        <module name="VisibilityModifier">
+            <property name="protectedAllowed" value="true"/>
+        </module>
 
         <!-- See http://checkstyle.sf.net/config_coding.html -->
         <module name="AvoidInlineConditionals"/>

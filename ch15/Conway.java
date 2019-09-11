@@ -1,68 +1,109 @@
-import java.awt.Toolkit;
-import javax.swing.JFrame;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
 
 /**
  * Conway's Game of Life.
  */
-public class Conway {
+public class Conway extends Automaton {
 
     /**
-     * Counts the number of live neighbors (without going out of bounds).
+     * Creates a grid with a Blinker and a Glider.
+     */
+    public Conway() {
+        grid = new GridCanvas(30, 25, SIZE);
+        grid.flip(1, 2);
+        grid.flip(2, 2);
+        grid.flip(3, 2);
+        grid.flip(6, 1);
+        grid.flip(7, 2);
+        grid.flip(7, 3);
+        grid.flip(8, 1);
+        grid.flip(8, 2);
+    }
+
+    /**
+     * Creates a grid based on a plain text file.
+     * http://www.conwaylife.com/wiki/Plaintext
      * 
-     * @param grid the grid
+     * @param path the path to the file
+     */
+    public Conway(String path) {
+
+        // open the file at the given path
+        Scanner scan = null;
+        try {
+            File file = new File(path);
+            scan = new Scanner(file);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+            System.exit(1);
+        }
+
+        // read file contents into memory
+        List<String> data = new ArrayList<String>();
+        while (scan.hasNextLine()) {
+            String line = scan.nextLine();
+            // ignore blank lines and comments
+            if (!line.isEmpty() && !line.startsWith("!")) {
+                data.add(line);
+            }
+        }
+
+        // validate the file contents
+        int rows = data.size();
+        if (rows == 0) {
+            throw new IllegalArgumentException("empty file");
+        }
+        int cols = data.get(0).length();
+        for (String line : data) {
+            if (line.length() != cols) {
+                throw new IllegalArgumentException("invalid file");
+            }
+        }
+
+        // create the resulting grid
+        grid = new GridCanvas(rows, cols, SIZE);
+        for (int r = 0; r < rows; r++) {
+            String line = data.get(r);
+            for (int c = 0; c < cols; c++) {
+                char x = line.charAt(c);
+                if (x == 'O') {
+                    grid.flip(r, c);
+                }
+            }
+        }
+    }
+
+    /**
+     * Counts the number of live neighbors around a cell.
+     * 
      * @param r row index
      * @param c column index
      * @return number of live neighbors
      */
-    public static int countAlive(Grid grid, int r, int c) {
+    private int countAlive(int r, int c) {
         int count = 0;
-        int cols = grid.getCols();
-        int rows = grid.getRows();
-
-        // previous row
-        if (r > 0) {
-            if (c > 0 && grid.isOn(r - 1, c - 1)) {
-                count++;
-            }
-            if (grid.isOn(r - 1, c)) {
-                count++;
-            }
-            if (c < cols - 1 && grid.isOn(r - 1, c + 1)) {
-                count++;
-            }
-        }
-
-        // current row
-        if (c > 0 && grid.isOn(r, c - 1)) {
-            count++;
-        }
-        if (c < cols - 1 && grid.isOn(r, c + 1)) {
-            count++;
-        }
-
-        // next row
-        if (r < rows - 1) {
-            if (c > 0 && grid.isOn(r + 1, c - 1)) {
-                count++;
-            }
-            if (grid.isOn(r + 1, c)) {
-                count++;
-            }
-            if (c < cols - 1 && grid.isOn(r + 1, c + 1)) {
-                count++;
-            }
-        }
-
+        count += grid.test(r - 1, c - 1);
+        count += grid.test(r - 1, c);
+        count += grid.test(r - 1, c + 1);
+        count += grid.test(r, c - 1);
+        count += grid.test(r, c + 1);
+        count += grid.test(r + 1, c - 1);
+        count += grid.test(r + 1, c);
+        count += grid.test(r + 1, c + 1);
         return count;
     }
 
     /**
-     * Apply the rules of Conway's Game of Life.
+     * Apply the update rules of Conway's Game of Life.
      * 
      * @param cell the cell to update
      * @param count number of live neighbors
      */
-    public static void updateCell(Cell cell, int count) {
+    private static void updateCell(Cell cell, int count) {
         if (cell.isOn()) {
             if (count < 2) {
                 // Any live cell with fewer than two live neighbors dies,
@@ -88,18 +129,16 @@ public class Conway {
 
     /**
      * Simulates one round of Conway's Game of Life.
-     * 
-     * @param grid the grid
      */
-    public static void update(Grid grid) {
-        int cols = grid.getCols();
+    public void update() {
         int rows = grid.getRows();
+        int cols = grid.getCols();
 
         // count neighbors before changing anything
         int[][] counts = new int[rows][cols];
         for (int r = 0; r < rows; r++) {
             for (int c = 0; c < cols; c++) {
-                counts[r][c] = countAlive(grid, r, c);
+                counts[r][c] = countAlive(r, c);
             }
         }
 
@@ -109,45 +148,9 @@ public class Conway {
                 updateCell(grid.getCell(r, c), counts[r][c]);
             }
         }
-    }
 
-    /**
-     * Sets up the grid, creates the drawing, and plays the game.
-     * 
-     * @param args command-line arguments
-     */
-    public static void main(String[] args) {
-
-        Grid grid = new Grid(30, 25, 20);
-        grid.flip(1, 2);
-        grid.flip(2, 2);
-        grid.flip(3, 2);
-        Drawing drawing = new Drawing(grid);
-
-        // set up the window frame
-        JFrame frame = new JFrame("Conway's Game of Life");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setResizable(false);
-        frame.add(drawing);
-        frame.pack();
-        frame.setVisible(true);
-
-        // main simulation loop
-        Toolkit toolkit = frame.getToolkit();
-        while (true) {
-
-            // update the drawing
-            update(grid);
-            drawing.repaint();
-
-            // delay the simulation
-            try {
-                Thread.sleep(500);
-                toolkit.sync();
-            } catch (InterruptedException e) {
-                // do nothing
-            }
-        }
+        // update the display
+        grid.repaint();
     }
 
 }
