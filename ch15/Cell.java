@@ -29,7 +29,7 @@ public class Cell {
     }
 
     /**
-     * Paints the cell on the screen.
+     * Draws the cell on the screen.
      * 
      * @param g graphics context
      */
@@ -41,28 +41,14 @@ public class Cell {
     }
 
     /**
-     * @return the cell's color
-     */
-    public Color getColor() {
-        return this.color;
-    }
-
-    /**
-     * @param color the new color
-     */
-    public void setColor(Color color) {
-        this.color = color;
-    }
-
-    /**
-     * @return true if the cell is off
+     * @return true if the cell is OFF
      */
     public boolean isOff() {
         return this.color == OFF;
     }
 
     /**
-     * @return true if the cell is on
+     * @return true if the cell is ON
      */
     public boolean isOn() {
         return this.color == ON;

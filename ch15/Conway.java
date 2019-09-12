@@ -131,8 +131,8 @@ public class Conway extends Automaton {
      * Simulates one round of Conway's Game of Life.
      */
     public void update() {
-        int rows = grid.getRows();
-        int cols = grid.getCols();
+        int rows = grid.numRows();
+        int cols = grid.numCols();
 
         // count neighbors before changing anything
         int[][] counts = new int[rows][cols];

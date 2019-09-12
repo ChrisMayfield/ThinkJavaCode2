@@ -1,6 +1,6 @@
 /**
- * A cellular automaton consists of a grid of cells and has the ability to
- * update itself over time.
+ * A cellular automaton consists of a grid of cells and follows a set of rules
+ * that update the grid over time.
  */
 public abstract class Automaton {
 

@@ -2,7 +2,7 @@ import java.awt.Toolkit;
 import javax.swing.JFrame;
 
 /**
- * Application that simulates a zero-player game.
+ * Application that simulates a cellular automaton.
  */
 public class Simulation {
 
@@ -13,17 +13,17 @@ public class Simulation {
      */
     public static void main(String[] args) {
 
-        // String title = "Langton's Ant";
-        // Automaton auto = new Langton();
-
         String title = "Conway's Game of Life";
-        Automaton auto = new Conway("bakersdozen.cells");
+        Automaton game = new Conway("bakersdozen.cells");
+
+        // String title = "Langton's Ant";
+        // Automaton game = new Langton();
 
         // set up the window frame
         JFrame frame = new JFrame(title);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setResizable(false);
-        frame.add(auto.getGrid());
+        frame.add(game.getGrid());
         frame.pack();
         frame.setVisible(true);
 
@@ -33,7 +33,7 @@ public class Simulation {
 
             // update the drawing
             toolkit.sync();
-            auto.update();
+            game.update();
 
             // delay the simulation
             try {

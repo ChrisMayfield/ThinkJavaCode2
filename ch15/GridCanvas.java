@@ -26,21 +26,21 @@ public class GridCanvas extends Canvas {
             }
         }
 
-        // set up the Canvas drawing
+        // set up the canvas drawing
         setSize(cols * size, rows * size);
     }
 
     /**
      * @return number of rows
      */
-    public int getRows() {
+    public int numRows() {
         return array.length;
     }
 
     /**
      * @return number of columns
      */
-    public int getCols() {
+    public int numCols() {
         return array[0].length;
     }
 
