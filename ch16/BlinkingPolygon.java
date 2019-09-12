@@ -20,7 +20,7 @@ public class BlinkingPolygon extends RegularPolygon {
     }
 
     @Override
-    public void act() {
+    public void step() {
         if (color != onColor) {
             color = onColor;
         } else {

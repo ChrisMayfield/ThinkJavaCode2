@@ -57,7 +57,7 @@ public class Sim3 implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         toolkit.sync();
-        drawing.next();
+        drawing.step();
     }
 
 }

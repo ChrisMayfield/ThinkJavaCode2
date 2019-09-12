@@ -33,7 +33,7 @@ public class MovingPolygon extends RegularPolygon {
     }
 
     @Override
-    public void act() {
+    public void step() {
 
         // edge detection
         for (int i = 0; i < npoints; i++) {

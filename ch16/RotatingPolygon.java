@@ -50,7 +50,7 @@ public class RotatingPolygon extends RegularPolygon {
     }
 
     @Override
-    public void act() {
+    public void step() {
         // update the rotation angle
         angle = (angle + 1) % 360;
         final double RAD = Math.toRadians(angle);

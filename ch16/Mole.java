@@ -22,10 +22,10 @@ public class Mole extends BlinkingPolygon {
     }
 
     @Override
-    public void act() {
+    public void step() {
         // blink on/off at random times
         if (alive && Math.random() < 0.5) {
-            super.act();
+            super.step();
         }
     }
 

@@ -80,7 +80,7 @@ public class RegularPolygon extends Polygon implements Actor {
     }
 
     @Override
-    public void act() {
+    public void step() {
         // nothing to do
     }
 

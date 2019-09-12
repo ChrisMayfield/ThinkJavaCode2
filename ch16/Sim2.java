@@ -44,7 +44,7 @@ public class Sim2 {
 
             // update the drawing
             toolkit.sync();
-            drawing.next();
+            drawing.step();
 
             // delay the simulation
             try {

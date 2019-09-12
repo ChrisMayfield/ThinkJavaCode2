@@ -42,11 +42,11 @@ public class Drawing extends Canvas {
     }
 
     /**
-     * Calls the act method of each actor and updates the drawing.
+     * Calls the step method of each actor and updates the drawing.
      */
-    public void next() {
+    public void step() {
         for (Actor actor : actors) {
-            actor.act();
+            actor.step();
         }
         repaint();
     }
