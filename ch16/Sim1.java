@@ -30,7 +30,7 @@ public class Sim1 {
         drawing.add(p5);
 
         // set up the window frame
-        JFrame frame = new JFrame("Drawing");
+        JFrame frame = new JFrame("Drawing (no animation)");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setResizable(false);
         frame.add(drawing);

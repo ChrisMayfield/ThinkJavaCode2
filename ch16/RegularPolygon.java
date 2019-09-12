@@ -12,7 +12,7 @@ public class RegularPolygon extends Polygon implements Actor {
             "Triangle", "Square", "Pentagon", "Hexagon",
             "Heptagon", "Octagon", "Nonagon", "Decagon"};
 
-    private Color color;
+    protected Color color;
 
     /**
      * Constructs a regular polygon, given the number of sides.
@@ -40,7 +40,7 @@ public class RegularPolygon extends Polygon implements Actor {
      * 
      * @param nsides the number of sides
      * @param length length of each side
-     * @param color the fill color
+     * @param color initial fill color
      */
     public RegularPolygon(int nsides, int length, Color color) {
 
@@ -89,13 +89,6 @@ public class RegularPolygon extends Polygon implements Actor {
         // System.out.println(this);
         g.setColor(color);
         g.fillPolygon(this);
-    }
-
-    /**
-     * @param color the new color
-     */
-    public void setColor(Color color) {
-        this.color = color;
     }
 
     @Override

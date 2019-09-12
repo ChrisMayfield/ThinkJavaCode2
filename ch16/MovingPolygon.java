@@ -1,5 +1,5 @@
 /**
- * A polygon that moves around the screen.
+ * A polygon that bounces off the walls.
  */
 public class MovingPolygon extends RegularPolygon {
 

@@ -41,15 +41,14 @@ public class WhackAMole implements ActionListener {
      */
     public static void main(String[] args) {
         WhackAMole sim = new WhackAMole();
-        Timer timer = new Timer(1000 / 60, sim);
+        Timer timer = new Timer(500, sim);
         timer.start();
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        drawing.nextact();
-        drawing.repaint();
         toolkit.sync();
+        drawing.next();
     }
 
 }

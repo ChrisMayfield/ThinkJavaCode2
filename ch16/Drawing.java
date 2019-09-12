@@ -42,12 +42,13 @@ public class Drawing extends Canvas {
     }
 
     /**
-     * Calls the act method of each actor.
+     * Calls the act method of each actor and updates the drawing.
      */
-    public void nextact() {
+    public void next() {
         for (Actor actor : actors) {
             actor.act();
         }
+        repaint();
     }
 
     /**
@@ -55,6 +56,7 @@ public class Drawing extends Canvas {
      * 
      * @param g graphics context
      */
+    @Override
     public void paint(Graphics g) {
         for (Actor actor : actors) {
             actor.draw(g);

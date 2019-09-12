@@ -1,8 +1,9 @@
+import java.awt.Color;
 import java.awt.Toolkit;
 import javax.swing.JFrame;
 
 /**
- * Example simulation of moving objects.
+ * Example simulation of animated objects.
  */
 public class Sim2 {
 
@@ -14,20 +15,23 @@ public class Sim2 {
     public static void main(String[] args) {
 
         // create some regular polygons
+        BlinkingPolygon bp = new BlinkingPolygon(3, 10, Color.BLUE);
         MovingPolygon mp = new MovingPolygon(8, 30);
         RotatingPolygon rp = new RotatingPolygon(5, 50);
 
         // move them out of the corner
+        bp.translate(50, 50);
         mp.translate(100, 100);
         rp.translate(200, 200);
 
         // create drawing, add polygons
         Drawing drawing = new Drawing(800, 600);
+        drawing.add(bp);
         drawing.add(mp);
         drawing.add(rp);
 
         // set up the window frame
-        JFrame frame = new JFrame("Drawing");
+        JFrame frame = new JFrame("Drawing with Thread.sleep");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setResizable(false);
         frame.add(drawing);
@@ -39,13 +43,12 @@ public class Sim2 {
         while (true) {
 
             // update the drawing
-            drawing.nextact();
-            drawing.repaint();
+            toolkit.sync();
+            drawing.next();
 
             // delay the simulation
             try {
-                Thread.sleep(1000 / 60);
-                toolkit.sync();
+                Thread.sleep(50);
             } catch (InterruptedException e) {
                 // do nothing
             }

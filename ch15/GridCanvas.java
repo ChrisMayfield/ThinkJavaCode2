@@ -105,7 +105,6 @@ public class GridCanvas extends Canvas {
      * 
      * @param g graphics context
      */
-    @Override
     public void paint(Graphics g) {
         draw(g);
     }
@@ -117,7 +116,6 @@ public class GridCanvas extends Canvas {
      * 
      * @param g graphics context
      */
-    @Override
     public void update(Graphics g) {
         draw(g);
     }
