@@ -4,7 +4,7 @@ import javax.swing.JFrame;
 /**
  * Application that simulates a cellular automaton.
  */
-public class Simulation {
+public class Main {
 
     /**
      * Sets up the grid, creates the frame, and plays the game.
@@ -14,7 +14,7 @@ public class Simulation {
     public static void main(String[] args) {
 
         String title = "Conway's Game of Life";
-        Automaton game = new Conway("bakersdozen.cells");
+        Automaton game = new Conway("pulsar.cells", 2);
 
         // String title = "Langton's Ant";
         // Automaton game = new Langton();

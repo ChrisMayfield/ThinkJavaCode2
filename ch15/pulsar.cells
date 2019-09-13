@@ -1,0 +1,17 @@
+!Name: Pulsar
+!Author: John Conway
+!Despite its size, this is the fourth most common oscillator (and by far the most common of period greater than 2).
+!www.conwaylife.com/wiki/index.php?title=Pulsar
+..OOO...OOO
+
+O....O.O....O
+O....O.O....O
+O....O.O....O
+..OOO...OOO
+
+..OOO...OOO
+O....O.O....O
+O....O.O....O
+O....O.O....O
+
+..OOO...OOO

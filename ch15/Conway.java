@@ -1,7 +1,6 @@
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -29,8 +28,9 @@ public class Conway extends Automaton {
      * http://www.conwaylife.com/wiki/Plaintext
      * 
      * @param path the path to the file
+     * @param margin how many cells to add
      */
-    public Conway(String path) {
+    public Conway(String path, int margin) {
 
         // open the file at the given path
         Scanner scan = null;
@@ -43,35 +43,35 @@ public class Conway extends Automaton {
         }
 
         // read file contents into memory
-        List<String> data = new ArrayList<String>();
+        ArrayList<String> data = new ArrayList<String>();
         while (scan.hasNextLine()) {
             String line = scan.nextLine();
-            // ignore blank lines and comments
-            if (!line.isEmpty() && !line.startsWith("!")) {
+            // only add non-comment lines
+            if (!line.startsWith("!")) {
                 data.add(line);
             }
         }
 
-        // validate the file contents
+        // determine number of rows and columns in the pattern
         int rows = data.size();
-        if (rows == 0) {
-            throw new IllegalArgumentException("empty file");
-        }
-        int cols = data.get(0).length();
+        int cols = 0;
         for (String line : data) {
-            if (line.length() != cols) {
-                throw new IllegalArgumentException("invalid file");
+            if (cols < line.length()) {
+                cols = line.length();
             }
         }
+        if (rows == 0 || cols == 0) {
+            throw new IllegalArgumentException("no cells found");
+        }
 
-        // create the resulting grid
-        grid = new GridCanvas(rows, cols, SIZE);
+        // create the resulting grid with margin of extra cells
+        grid = new GridCanvas(rows + 2 * margin, cols + 2 * margin, SIZE);
         for (int r = 0; r < rows; r++) {
             String line = data.get(r);
-            for (int c = 0; c < cols; c++) {
+            for (int c = 0; c < line.length(); c++) {
                 char x = line.charAt(c);
                 if (x == 'O') {
-                    grid.flip(r, c);
+                    grid.flip(r + margin, c + margin);
                 }
             }
         }

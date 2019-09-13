@@ -2,7 +2,7 @@ import java.awt.Canvas;
 import java.awt.Graphics;
 
 /**
- * 2D array of cells representing a game board.
+ * 2D array of cells representing a rectangular grid.
  */
 public class GridCanvas extends Canvas {
 
