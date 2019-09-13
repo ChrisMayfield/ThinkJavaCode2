@@ -26,17 +26,11 @@ public class Langton extends Automaton {
         if (cell.isOn()) {
             // at a black square; flip color and turn left
             cell.turnOff();
-            head -= 1;
-            if (head < 0) {
-                head = 3;
-            }
+            head = (head + 3) % 4;
         } else {
             // at a white square; flip color and turn right
             cell.turnOn();
-            head += 1;
-            if (head > 3) {
-                head = 0;
-            }
+            head = (head + 1) % 4;
         }
 
         // move forward one unit
@@ -57,6 +51,8 @@ public class Langton extends Automaton {
 
         // update the display
         grid.repaint();
+        
+        // TODO: draw a triangle to show the ant
     }
 
 }

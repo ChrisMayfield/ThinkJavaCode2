@@ -13,14 +13,14 @@ public class Conway extends Automaton {
      */
     public Conway() {
         grid = new GridCanvas(30, 25, SIZE);
-        grid.flip(1, 2);
-        grid.flip(2, 2);
-        grid.flip(3, 2);
-        grid.flip(6, 1);
-        grid.flip(7, 2);
-        grid.flip(7, 3);
-        grid.flip(8, 1);
-        grid.flip(8, 2);
+        grid.getCell(1, 2).turnOn();
+        grid.getCell(2, 2).turnOn();
+        grid.getCell(3, 2).turnOn();
+        grid.getCell(6, 1).turnOn();
+        grid.getCell(7, 2).turnOn();
+        grid.getCell(7, 3).turnOn();
+        grid.getCell(8, 1).turnOn();
+        grid.getCell(8, 2).turnOn();
     }
 
     /**
@@ -71,7 +71,8 @@ public class Conway extends Automaton {
             for (int c = 0; c < line.length(); c++) {
                 char x = line.charAt(c);
                 if (x == 'O') {
-                    grid.flip(r + margin, c + margin);
+                    Cell cell = grid.getCell(r + margin, c + margin);
+                    cell.turnOn();
                 }
             }
         }
