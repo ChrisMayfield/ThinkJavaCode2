@@ -34,38 +34,38 @@ public class Cell {
      * @param g graphics context
      */
     public void draw(Graphics g) {
-        g.setColor(this.color);
-        g.fillRect(this.x + 1, this.y + 1, this.size - 1, this.size - 1);
+        g.setColor(color);
+        g.fillRect(x + 1, y + 1, size - 1, size - 1);
         g.setColor(Color.LIGHT_GRAY);
-        g.drawRect(this.x, this.y, this.size, this.size);
+        g.drawRect(x, y, size, size);
     }
 
     /**
      * @return true if the color is OFF
      */
     public boolean isOff() {
-        return this.color == OFF;
+        return color == OFF;
     }
 
     /**
      * @return true if the color is ON
      */
     public boolean isOn() {
-        return this.color == ON;
+        return color == ON;
     }
 
     /**
      * Sets the cell's color to OFF.
      */
     public void turnOff() {
-        this.color = OFF;
+        color = OFF;
     }
 
     /**
      * Sets the cell's color to ON.
      */
     public void turnOn() {
-        this.color = ON;
+        color = ON;
     }
 
 }

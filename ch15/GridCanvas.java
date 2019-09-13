@@ -19,10 +19,10 @@ public class GridCanvas extends Canvas {
     public GridCanvas(int rows, int cols, int size) {
 
         // build 2D array of cells
-        this.array = new Cell[rows][cols];
+        array = new Cell[rows][cols];
         for (int r = 0; r < rows; r++) {
             for (int c = 0; c < cols; c++) {
-                this.array[r][c] = new Cell(c * size, r * size, size);
+                array[r][c] = new Cell(c * size, r * size, size);
             }
         }
 
