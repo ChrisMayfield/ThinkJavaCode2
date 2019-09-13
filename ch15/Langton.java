@@ -8,12 +8,12 @@ public class Langton extends Automaton {
     private int head; // 0=North, 1=East, 2=South, 3=West
 
     /**
-     * Creates an 11x11 grid with the ant in the center.
+     * Creates a grid with the ant in the center.
      */
-    public Langton() {
-        grid = new GridCanvas(11, 11, SIZE);
-        xpos = 5;
-        ypos = 5;
+    public Langton(int nrows, int ncols) {
+        grid = new GridCanvas(nrows, ncols, 10);
+        xpos = nrows / 2;
+        ypos = ncols / 2;
         head = 0;
     }
 

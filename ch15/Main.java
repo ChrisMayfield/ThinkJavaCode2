@@ -7,19 +7,25 @@ import javax.swing.JFrame;
 public class Main {
 
     /**
-     * Sets up the grid, creates the frame, and plays the game.
+     * Creates an automaton and runs it.
      * 
      * @param args command-line arguments
      */
     public static void main(String[] args) {
-
         String title = "Conway's Game of Life";
         Automaton game = new Conway("pulsar.cells", 2);
+        runSimulation(title, game, 500);
+    }
 
-        // String title = "Langton's Ant";
-        // Automaton game = new Langton();
-
-        // set up the window frame
+    /**
+	 * Creates a JFrame and runs the simulation.
+	 * 
+	 * @param title
+	 * @param game
+	 * @param delay
+	 */
+	public static void runSimulation(String title, Automaton game, int delay) {
+		// set up the window frame
         JFrame frame = new JFrame(title);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setResizable(false);
@@ -32,16 +38,15 @@ public class Main {
         while (true) {
 
             // update the drawing
-            toolkit.sync();
             game.update();
+            toolkit.sync();
 
             // delay the simulation
             try {
-                Thread.sleep(500);
+                Thread.sleep(delay);
             } catch (InterruptedException e) {
                 // do nothing
             }
         }
-    }
-
+	}
 }
