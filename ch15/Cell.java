@@ -68,4 +68,12 @@ public class Cell {
         color = ON;
     }
 
+	public void flip() {
+		if (isOn()) {
+			turnOff();
+		} else {
+			turnOn();
+		}
+	}
+
 }

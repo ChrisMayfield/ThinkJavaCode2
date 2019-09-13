@@ -61,11 +61,7 @@ public class GridCanvas extends Canvas {
      */
     public void flip(int r, int c) {
         Cell cell = array[r][c];
-        if (cell.isOff()) {
-            cell.turnOn();
-        } else {
-            cell.turnOff();
-        }
+        cell.flip();
     }
 
     /**
@@ -119,5 +115,4 @@ public class GridCanvas extends Canvas {
     public void update(Graphics g) {
         draw(g);
     }
-
 }
