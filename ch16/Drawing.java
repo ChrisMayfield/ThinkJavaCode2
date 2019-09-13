@@ -42,16 +42,6 @@ public class Drawing extends Canvas {
     }
 
     /**
-     * Calls the step method of each actor and updates the drawing.
-     */
-    public void step() {
-        for (Actor actor : actors) {
-            actor.step();
-        }
-        repaint();
-    }
-
-    /**
      * Draws all the actors on the canvas.
      * 
      * @param g graphics context
@@ -61,6 +51,16 @@ public class Drawing extends Canvas {
         for (Actor actor : actors) {
             actor.draw(g);
         }
+    }
+
+    /**
+     * Calls the step method of each actor and updates the drawing.
+     */
+    public void step() {
+        for (Actor actor : actors) {
+            actor.step();
+        }
+        repaint();
     }
 
 }

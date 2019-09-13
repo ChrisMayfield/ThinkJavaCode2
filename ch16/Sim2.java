@@ -15,9 +15,9 @@ public class Sim2 {
     public static void main(String[] args) {
 
         // create some regular polygons
-        BlinkingPolygon bp = new BlinkingPolygon(3, 10, Color.BLUE);
+        BlinkingPolygon bp = new BlinkingPolygon(3, 20, Color.BLUE);
         MovingPolygon mp = new MovingPolygon(8, 30);
-        RotatingPolygon rp = new RotatingPolygon(5, 50);
+        RotatingPolygon rp = new RotatingPolygon(5, 40);
 
         // move them out of the corner
         bp.translate(50, 50);
@@ -48,7 +48,7 @@ public class Sim2 {
 
             // delay the simulation
             try {
-                Thread.sleep(50);
+                Thread.sleep(1000 / 30);
             } catch (InterruptedException e) {
                 // do nothing
             }

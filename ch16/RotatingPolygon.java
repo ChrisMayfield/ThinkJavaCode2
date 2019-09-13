@@ -14,13 +14,13 @@ public class RotatingPolygon extends RegularPolygon {
     private int[] y0; // original ypoints
 
     /**
-     * Constructs a moving polygon.
+     * Constructs a rotating polygon.
      * 
      * @param nsides the number of sides
-     * @param length length of each side
+     * @param radius from center to vertex
      */
-    public RotatingPolygon(int nsides, int length) {
-        super(nsides, length);
+    public RotatingPolygon(int nsides, int radius) {
+        super(nsides, radius);
         center();
     }
 
@@ -38,11 +38,11 @@ public class RotatingPolygon extends RegularPolygon {
         for (int y : ypoints) {
             ysum += y;
         }
-        this.xmid = (int) Math.round(xsum / npoints);
-        this.ymid = (int) Math.round(ysum / npoints);
+        xmid = (int) Math.round(xsum / npoints);
+        ymid = (int) Math.round(ysum / npoints);
 
         // reset the rotation direction
-        this.angle = 359;
+        angle = 359;
 
         // save the original x and y points
         x0 = Arrays.copyOf(xpoints, npoints);

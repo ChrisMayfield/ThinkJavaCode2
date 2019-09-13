@@ -18,9 +18,9 @@ public class Sim3 implements ActionListener {
      */
     public Sim3() {
         // create some regular polygons
-        BlinkingPolygon bp = new BlinkingPolygon(3, 10, Color.BLUE);
+        BlinkingPolygon bp = new BlinkingPolygon(3, 20, Color.BLUE);
         MovingPolygon mp = new MovingPolygon(8, 30);
-        RotatingPolygon rp = new RotatingPolygon(5, 50);
+        RotatingPolygon rp = new RotatingPolygon(5, 40);
 
         // move them out of the corner
         bp.translate(50, 50);
@@ -50,7 +50,7 @@ public class Sim3 implements ActionListener {
      */
     public static void main(String[] args) {
         Sim3 sim = new Sim3();
-        Timer timer = new Timer(50, sim);
+        Timer timer = new Timer(1000 / 30, sim);
         timer.start();
     }
 

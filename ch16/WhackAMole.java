@@ -21,11 +21,14 @@ public class WhackAMole implements ActionListener {
         // create drawing, add polygons
         drawing = new MoleHill(800, 600);
         drawing.add(new Mole(150, 200));
-        drawing.add(new Mole(350, 250));
+        drawing.add(new Mole(350, 200));
         drawing.add(new Mole(550, 200));
+        drawing.add(new Mole(150, 400));
+        drawing.add(new Mole(350, 400));
+        drawing.add(new Mole(550, 400));
 
         // set up the window frame
-        JFrame frame = new JFrame("Drawing");
+        JFrame frame = new JFrame("Whack-A-Mole");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setResizable(false);
         frame.add(drawing);
@@ -41,7 +44,7 @@ public class WhackAMole implements ActionListener {
      */
     public static void main(String[] args) {
         WhackAMole sim = new WhackAMole();
-        Timer timer = new Timer(500, sim);
+        Timer timer = new Timer(1000 / 30, sim);
         timer.start();
     }
 

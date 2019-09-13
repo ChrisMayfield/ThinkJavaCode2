@@ -24,32 +24,31 @@ public class RegularPolygon extends Polygon implements Actor {
     }
 
     /**
-     * Constructs a regular polygon, given the number of sides and length of
-     * each side.
+     * Constructs a regular polygon, given the number of sides and the radius.
      * 
      * @param nsides the number of sides
-     * @param length length of each side
+     * @param radius from center to vertex
      */
-    public RegularPolygon(int nsides, int length) {
-        this(nsides, length, Color.BLACK);
+    public RegularPolygon(int nsides, int radius) {
+        this(nsides, radius, Color.BLACK);
     }
 
     /**
-     * Constructs a regular polygon, given the number of sides, the length of
-     * each side, and fill color.
+     * Constructs a regular polygon, given the number of sides, the radius, and
+     * fill color.
      * 
      * @param nsides the number of sides
-     * @param length length of each side
+     * @param radius from center to vertex
      * @param color initial fill color
      */
-    public RegularPolygon(int nsides, int length, Color color) {
+    public RegularPolygon(int nsides, int radius, Color color) {
 
         // validate and store arguments
         if (nsides < 3) {
             throw new IllegalArgumentException("invalid nsides");
         }
-        if (length < 1) {
-            throw new IllegalArgumentException("invalid length");
+        if (radius < 1) {
+            throw new IllegalArgumentException("invalid radius");
         }
         if (color == null) {
             throw new NullPointerException("invalid color");
@@ -60,9 +59,6 @@ public class RegularPolygon extends Polygon implements Actor {
         this.xpoints = new int[nsides];
         this.ypoints = new int[nsides];
         this.color = color;
-
-        // radius of the polygon (distance from center to vertex)
-        double radius = 0.5 * length / Math.sin(Math.PI / nsides);
 
         // the angle (in radians) at each vertex
         double angle = 2.0 * Math.PI / nsides;
@@ -81,12 +77,11 @@ public class RegularPolygon extends Polygon implements Actor {
 
     @Override
     public void step() {
-        // nothing to do
+        // do nothing
     }
 
     @Override
     public void draw(Graphics g) {
-        // System.out.println(this);
         g.setColor(color);
         g.fillPolygon(this);
     }

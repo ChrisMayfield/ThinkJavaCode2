@@ -10,12 +10,12 @@ public class MovingPolygon extends RegularPolygon {
      * Constructs a moving polygon.
      * 
      * @param nsides the number of sides
-     * @param length length of each side
+     * @param radius from center to vertex
      */
-    public MovingPolygon(int nsides, int length) {
-        super(nsides, length);
-        this.dx = 10;
-        this.dy = 5;
+    public MovingPolygon(int nsides, int radius) {
+        super(nsides, radius);
+        dx = 10;
+        dy = 5;
     }
 
     /**

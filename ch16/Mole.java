@@ -16,7 +16,7 @@ public class Mole extends BlinkingPolygon {
      * @param y the Y coordinate
      */
     public Mole(int x, int y) {
-        super(10, 20, BROWN);
+        super(10, 30, BROWN);
         translate(x, y);
         alive = true;
     }
