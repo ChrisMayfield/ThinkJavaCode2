@@ -87,14 +87,13 @@ public class Conway extends Automaton {
      */
     private int countAlive(int r, int c) {
         int count = 0;
-        count += grid.test(r - 1, c - 1);
-        count += grid.test(r - 1, c);
-        count += grid.test(r - 1, c + 1);
-        count += grid.test(r, c - 1);
-        count += grid.test(r, c + 1);
-        count += grid.test(r + 1, c - 1);
-        count += grid.test(r + 1, c);
-        count += grid.test(r + 1, c + 1);
+        for (int i=-1; i<=1; i++) {
+        	for (int j=-1; j<=1; j++) {
+        		if (i!=0 || j!=0) {
+        			count += grid.test(r+i, c+j);
+        		}
+        	}
+        }
         return count;
     }
 
@@ -106,18 +105,12 @@ public class Conway extends Automaton {
      */
     private static void updateCell(Cell cell, int count) {
         if (cell.isOn()) {
-            if (count < 2) {
+            if (count < 2 || count > 3) {
                 // Any live cell with fewer than two live neighbors dies,
                 // as if by underpopulation.
-                cell.turnOff();
-            } else if (count > 3) {
-                // Any live cell with more than three live neighbors dies,
+            	// Any live cell with more than three live neighbors dies,
                 // as if by overpopulation.
                 cell.turnOff();
-            } else {
-                // Any live cell with two or three live neighbors lives on
-                // to the next generation.
-                cell.turnOn();
             }
         } else {
             if (count == 3) {
@@ -146,7 +139,8 @@ public class Conway extends Automaton {
         // update each cell based on neighbor counts
         for (int r = 0; r < rows; r++) {
             for (int c = 0; c < cols; c++) {
-                updateCell(grid.getCell(r, c), counts[r][c]);
+                final Cell cell = grid.getCell(r, c);
+				updateCell(cell, counts[r][c]);
             }
         }
 

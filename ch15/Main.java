@@ -13,8 +13,8 @@ public class Main {
      */
     public static void main(String[] args) {
         String title = "Conway's Game of Life";
-        Automaton game = new Conway();
-        // Automaton game = new Conway("pulsar.cells", 2);
+        //Automaton game = new Conway();
+        Automaton game = new Conway("pulsar.cells", 2);
         runSimulation(title, game, 500);
     }
 
@@ -40,7 +40,7 @@ public class Main {
 
             // update the drawing
             game.update();
-            toolkit.sync();
+            //toolkit.sync();
 
             // delay the simulation
             try {
