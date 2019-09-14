@@ -37,5 +37,4 @@ public class Sim1 {
         frame.pack();
         frame.setVisible(true);
     }
-
 }

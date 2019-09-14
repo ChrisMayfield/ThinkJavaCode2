@@ -52,5 +52,4 @@ public class MovingPolygon extends RegularPolygon {
         // move one step
         translate(dx, dy);
     }
-
 }

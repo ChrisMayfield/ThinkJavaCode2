@@ -1,11 +1,12 @@
 import java.awt.Color;
+import java.awt.Graphics;
 
 /**
  * A polygon that periodically changes colors on/off.
  */
 public class BlinkingPolygon extends RegularPolygon {
 
-    private Color onColor;
+    private boolean drawFlag;
     private int count;
 
     /**
@@ -17,23 +18,24 @@ public class BlinkingPolygon extends RegularPolygon {
      */
     public BlinkingPolygon(int nsides, int radius, Color color) {
         super(nsides, radius, color);
-        onColor = color;
+        drawFlag = true;
         count = 0;
     }
-
+    
     @Override
     public void step() {
-        // count to ten first
+        // every 10 steps toggle drawFlag
         count++;
-        if (count >= 10) {
+        if (count == 10) {
             count = 0;
-            // toggle the color
-            if (color != onColor) {
-                color = onColor;
-            } else {
-                color = Color.WHITE;
-            }
+            drawFlag = !drawFlag;
         }
     }
-
+    
+    @Override
+    public void draw(Graphics g) {
+    	if (drawFlag) {
+    		super.draw(g);
+    	}
+    }
 }

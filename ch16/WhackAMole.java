@@ -5,7 +5,7 @@ import javax.swing.JFrame;
 import javax.swing.Timer;
 
 /**
- * Simulates the arcade game of Whack-A-Mole.
+ * Simulates the arcade game Whack-A-Mole.
  * https://en.wikipedia.org/wiki/Whac-A-Mole
  */
 public class WhackAMole implements ActionListener {
@@ -37,6 +37,12 @@ public class WhackAMole implements ActionListener {
         toolkit = frame.getToolkit();
     }
 
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        toolkit.sync();
+        drawing.step();
+    }
+    
     /**
      * Create and start the timer.
      *
@@ -44,14 +50,9 @@ public class WhackAMole implements ActionListener {
      */
     public static void main(String[] args) {
         WhackAMole sim = new WhackAMole();
+        
+        // TODO: Can we explain the 1000 / 30 or write it so it's obvious?
         Timer timer = new Timer(1000 / 30, sim);
         timer.start();
     }
-
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        toolkit.sync();
-        drawing.step();
-    }
-
 }

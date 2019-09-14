@@ -43,6 +43,12 @@ public class Sim3 implements ActionListener {
         toolkit = frame.getToolkit();
     }
 
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        toolkit.sync();
+        drawing.step();
+    }
+    
     /**
      * Create and start the timer.
      *
@@ -53,11 +59,4 @@ public class Sim3 implements ActionListener {
         Timer timer = new Timer(1000 / 30, sim);
         timer.start();
     }
-
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        toolkit.sync();
-        drawing.step();
-    }
-
 }
