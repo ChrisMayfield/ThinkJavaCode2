@@ -6,7 +6,7 @@ import java.awt.Graphics;
  */
 public class BlinkingPolygon extends RegularPolygon {
 
-    private boolean drawFlag;
+    protected boolean visible;
     private int count;
 
     /**
@@ -18,24 +18,24 @@ public class BlinkingPolygon extends RegularPolygon {
      */
     public BlinkingPolygon(int nsides, int radius, Color color) {
         super(nsides, radius, color);
-        drawFlag = true;
+        visible = true;
         count = 0;
     }
 
     @Override
     public void draw(Graphics g) {
-        if (drawFlag) {
+        if (visible) {
             super.draw(g);
         }
     }
 
     @Override
     public void step() {
-        // toggle drawFlag every 10 steps
+        // toggle visibility every 10 steps
         count++;
         if (count == 10) {
             count = 0;
-            drawFlag = !drawFlag;
+            visible = !visible;
         }
     }
 

@@ -34,7 +34,7 @@ public class Mole extends BlinkingPolygon {
      */
     public void whack() {
         // ignore whack when invisible
-        if (color == BROWN) {
+        if (visible) {
             color = Color.LIGHT_GRAY;
             alive = false;
         }
