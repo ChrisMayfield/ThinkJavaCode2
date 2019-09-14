@@ -21,21 +21,22 @@ public class BlinkingPolygon extends RegularPolygon {
         drawFlag = true;
         count = 0;
     }
-    
+
+    @Override
+    public void draw(Graphics g) {
+        if (drawFlag) {
+            super.draw(g);
+        }
+    }
+
     @Override
     public void step() {
-        // every 10 steps toggle drawFlag
+        // toggle drawFlag every 10 steps
         count++;
         if (count == 10) {
             count = 0;
             drawFlag = !drawFlag;
         }
     }
-    
-    @Override
-    public void draw(Graphics g) {
-    	if (drawFlag) {
-    		super.draw(g);
-    	}
-    }
+
 }

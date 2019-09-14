@@ -20,7 +20,7 @@ public class RegularPolygon extends Polygon implements Actor {
      * @param nsides the number of sides
      */
     public RegularPolygon(int nsides) {
-        this(nsides, 6);
+        this(nsides, 50);
     }
 
     /**
@@ -69,21 +69,21 @@ public class RegularPolygon extends Polygon implements Actor {
         // compute x and y coordinates, centered around the origin
         for (int i = 0; i < nsides; i++) {
             double x = radius * Math.cos(i * angle + rotate);
-			xpoints[i] = (int) Math.round(x);
+            xpoints[i] = (int) Math.round(x);
             double y = radius * Math.sin(i * angle + rotate);
-			ypoints[i] = (int) Math.round(y);
+            ypoints[i] = (int) Math.round(y);
         }
-    }
-
-    @Override
-    public void step() {
-        // do nothing
     }
 
     @Override
     public void draw(Graphics g) {
         g.setColor(color);
         g.fillPolygon(this);
+    }
+
+    @Override
+    public void step() {
+        // do nothing
     }
 
     @Override
@@ -110,4 +110,5 @@ public class RegularPolygon extends Polygon implements Actor {
         str.append(']');
         return str.toString();
     }
+
 }
