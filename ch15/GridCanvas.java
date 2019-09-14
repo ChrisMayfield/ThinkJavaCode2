@@ -21,9 +21,9 @@ public class GridCanvas extends Canvas {
         // build 2D array of cells
         array = new Cell[rows][cols];
         for (int r = 0; r < rows; r++) {
-        	int y = r * size;
+            int y = r * size;
             for (int c = 0; c < cols; c++) {
-            	int x = c * size;
+                int x = c * size;
                 array[r][c] = new Cell(x, y, size);
             }
         }
@@ -51,8 +51,18 @@ public class GridCanvas extends Canvas {
      * @param c column index
      * @return the cell
      */
-    public Cell getCell(int r, int c) {
+    public Cell cellAt(int r, int c) {
         return array[r][c];
+    }
+
+    /**
+     * Convenience method that turns on the cell at (r, c).
+     * 
+     * @param r row index
+     * @param c column index
+     */
+    public void init(int r, int c) {
+        array[r][c].turnOn();
     }
 
     /**
@@ -106,4 +116,5 @@ public class GridCanvas extends Canvas {
     public void update(Graphics g) {
         draw(g);
     }
+
 }

@@ -9,11 +9,14 @@ public class Langton extends Automaton {
 
     /**
      * Creates a grid with the ant in the center.
+     * 
+     * @param rows number of rows
+     * @param cols number of columns
      */
-    public Langton(int nrows, int ncols) {
-        grid = new GridCanvas(nrows, ncols, 10);
-        xpos = nrows / 2;
-        ypos = ncols / 2;
+    public Langton(int rows, int cols) {
+        grid = new GridCanvas(rows, cols, 10);
+        xpos = rows / 2;
+        ypos = cols / 2;
         head = 0;
     }
 
@@ -22,7 +25,7 @@ public class Langton extends Automaton {
      */
     public void update() {
 
-        Cell cell = grid.getCell(xpos, ypos);
+        Cell cell = grid.cellAt(xpos, ypos);
         if (cell.isOn()) {
             // at a black square; flip color and turn left
             cell.turnOff();
@@ -49,10 +52,18 @@ public class Langton extends Automaton {
                 break;
         }
 
-        // update the display
-        grid.repaint();
-        
         // TODO: draw a triangle to show the ant
+    }
+
+    /**
+     * Creates and runs the simulation.
+     * 
+     * @param args command-line arguments
+     */
+    public static void main(String[] args) {
+        String title = "Langton's Ant";
+        Langton game = new Langton(61, 61);
+        game.run(title, 750);
     }
 
 }

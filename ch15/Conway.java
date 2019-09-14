@@ -13,14 +13,14 @@ public class Conway extends Automaton {
      */
     public Conway() {
         grid = new GridCanvas(30, 25, SIZE);
-        grid.getCell(1, 2).turnOn();
-        grid.getCell(2, 2).turnOn();
-        grid.getCell(3, 2).turnOn();
-        grid.getCell(6, 1).turnOn();
-        grid.getCell(7, 2).turnOn();
-        grid.getCell(7, 3).turnOn();
-        grid.getCell(8, 1).turnOn();
-        grid.getCell(8, 2).turnOn();
+        grid.init(1, 2);
+        grid.init(2, 2);
+        grid.init(3, 2);
+        grid.init(6, 1);
+        grid.init(7, 2);
+        grid.init(7, 3);
+        grid.init(8, 1);
+        grid.init(8, 2);
     }
 
     /**
@@ -71,8 +71,7 @@ public class Conway extends Automaton {
             for (int c = 0; c < line.length(); c++) {
                 char x = line.charAt(c);
                 if (x == 'O') {
-                    Cell cell = grid.getCell(r + margin, c + margin);
-                    cell.turnOn();
+                    grid.init(r + margin, c + margin);
                 }
             }
         }
@@ -87,13 +86,14 @@ public class Conway extends Automaton {
      */
     private int countAlive(int r, int c) {
         int count = 0;
-        for (int i=-1; i<=1; i++) {
-        	for (int j=-1; j<=1; j++) {
-        		if (i!=0 || j!=0) {
-        			count += grid.test(r+i, c+j);
-        		}
-        	}
-        }
+        count += grid.test(r - 1, c - 1);
+        count += grid.test(r - 1, c);
+        count += grid.test(r - 1, c + 1);
+        count += grid.test(r, c - 1);
+        count += grid.test(r, c + 1);
+        count += grid.test(r + 1, c - 1);
+        count += grid.test(r + 1, c);
+        count += grid.test(r + 1, c + 1);
         return count;
     }
 
@@ -108,7 +108,7 @@ public class Conway extends Automaton {
             if (count < 2 || count > 3) {
                 // Any live cell with fewer than two live neighbors dies,
                 // as if by underpopulation.
-            	// Any live cell with more than three live neighbors dies,
+                // Any live cell with more than three live neighbors dies,
                 // as if by overpopulation.
                 cell.turnOff();
             }
@@ -139,13 +139,21 @@ public class Conway extends Automaton {
         // update each cell based on neighbor counts
         for (int r = 0; r < rows; r++) {
             for (int c = 0; c < cols; c++) {
-                final Cell cell = grid.getCell(r, c);
-				updateCell(cell, counts[r][c]);
+                Cell cell = grid.cellAt(r, c);
+                updateCell(cell, counts[r][c]);
             }
         }
+    }
 
-        // update the display
-        grid.repaint();
+    /**
+     * Creates and runs the simulation.
+     * 
+     * @param args command-line arguments
+     */
+    public static void main(String[] args) {
+        String title = "Conway's Game of Life";
+        Conway game = new Conway("pulsar.cells", 2);
+        game.run(title, 2);
     }
 
 }
