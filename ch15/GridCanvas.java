@@ -78,7 +78,7 @@ public class GridCanvas extends Canvas {
             if (array[r][c].isOn()) {
                 return 1;
             }
-        } catch (IndexOutOfBoundsException e) {
+        } catch (ArrayIndexOutOfBoundsException e) {
             // cell doesn't exist
         }
         return 0;

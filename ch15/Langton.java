@@ -26,30 +26,25 @@ public class Langton extends Automaton {
     public void update() {
 
         Cell cell = grid.cellAt(xpos, ypos);
-        if (cell.isOn()) {
-            // at a black square; flip color and turn left
-            cell.turnOff();
-            head = (head + 3) % 4;
-        } else {
-            // at a white square; flip color and turn right
-            cell.turnOn();
+        if (cell.isOff()) {
+            // at a white square; turn right and flip color
             head = (head + 1) % 4;
+            cell.turnOn();
+        } else {
+            // at a black square; turn left and flip color
+            head = (head + 3) % 4;
+            cell.turnOff();
         }
 
         // move forward one unit
-        switch (head) {
-            case 0:
-                ypos -= 1;
-                break;
-            case 1:
-                xpos += 1;
-                break;
-            case 2:
-                ypos += 1;
-                break;
-            case 3:
-                xpos -= 1;
-                break;
+        if (head == 0) {
+            ypos -= 1;
+        } else if (head == 1) {
+            xpos += 1;
+        } else if (head == 2) {
+            ypos += 1;
+        } else {
+            xpos -= 1;
         }
 
         // TODO: draw a triangle to show the ant

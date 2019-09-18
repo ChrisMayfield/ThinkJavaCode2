@@ -34,7 +34,7 @@ public class Cell {
      * @param g graphics context
      */
     public void draw(Graphics g) {
-        g.setColor(color);
+        g.setColor(this.color);
         g.fillRect(x + 1, y + 1, size - 1, size - 1);
         g.setColor(Color.LIGHT_GRAY);
         g.drawRect(x, y, size, size);
