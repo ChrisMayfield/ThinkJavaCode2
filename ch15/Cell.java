@@ -6,13 +6,12 @@ import java.awt.Graphics;
  */
 public class Cell {
 
-    public static final Color OFF = Color.WHITE;
-    public static final Color ON = Color.BLACK;
+	public static final Color colors[] = {Color.WHITE, Color.BLACK};
 
     private final int x;
     private final int y;
     private final int size;
-    private Color color;
+    private int state;
 
     /**
      * Constructs a new cell, initially turned off.
@@ -25,7 +24,7 @@ public class Cell {
         this.x = x;
         this.y = y;
         this.size = size;
-        this.color = OFF;
+        this.state = 0;
     }
 
     /**
@@ -34,38 +33,38 @@ public class Cell {
      * @param g graphics context
      */
     public void draw(Graphics g) {
-        g.setColor(this.color);
+    	Color color = colors[this.state];
+        g.setColor(color);
         g.fillRect(x + 1, y + 1, size - 1, size - 1);
         g.setColor(Color.LIGHT_GRAY);
         g.drawRect(x, y, size, size);
     }
 
     /**
-     * @return true if the color is OFF
+     * @return true if the cell is OFF
      */
     public boolean isOff() {
-        return color == OFF;
+        return state == 0;
     }
 
     /**
-     * @return true if the color is ON
+     * @return true if the cell is ON
      */
     public boolean isOn() {
-        return color == ON;
+        return state == 1;
     }
 
     /**
-     * Sets the cell's color to OFF.
+     * Sets the cell's state to OFF.
      */
     public void turnOff() {
-        color = OFF;
+        state = 0;
     }
 
     /**
-     * Sets the cell's color to ON.
+     * Sets the cell's state to ON.
      */
     public void turnOn() {
-        color = ON;
+        state = 1;
     }
-
 }

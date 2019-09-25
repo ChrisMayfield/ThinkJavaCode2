@@ -51,7 +51,7 @@ public class GridCanvas extends Canvas {
      * @param c column index
      * @return the cell
      */
-    public Cell cellAt(int r, int c) {
+    public Cell getCell(int r, int c) {
         return array[r][c];
     }
 
@@ -61,7 +61,7 @@ public class GridCanvas extends Canvas {
      * @param r row index
      * @param c column index
      */
-    public void init(int r, int c) {
+    public void turnCellOn(int r, int c) {
         array[r][c].turnOn();
     }
 

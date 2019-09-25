@@ -25,7 +25,7 @@ public class Langton extends Automaton {
      */
     public void update() {
 
-        Cell cell = grid.cellAt(xpos, ypos);
+        Cell cell = grid.getCell(xpos, ypos);
         if (cell.isOff()) {
             // at a white square; turn right and flip color
             head = (head + 1) % 4;

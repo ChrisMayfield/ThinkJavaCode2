@@ -13,14 +13,14 @@ public class Conway extends Automaton {
      */
     public Conway() {
         grid = new GridCanvas(30, 25, SIZE);
-        grid.init(1, 2);
-        grid.init(2, 2);
-        grid.init(3, 2);
-        grid.init(6, 1);
-        grid.init(7, 2);
-        grid.init(7, 3);
-        grid.init(8, 1);
-        grid.init(8, 2);
+        grid.turnCellOn(1, 2);
+        grid.turnCellOn(2, 2);
+        grid.turnCellOn(3, 2);
+        grid.turnCellOn(6, 1);
+        grid.turnCellOn(7, 2);
+        grid.turnCellOn(7, 3);
+        grid.turnCellOn(8, 1);
+        grid.turnCellOn(8, 2);
     }
 
     /**
@@ -71,7 +71,7 @@ public class Conway extends Automaton {
             for (int c = 0; c < line.length(); c++) {
                 char x = line.charAt(c);
                 if (x == 'O') {
-                    grid.init(r + margin, c + margin);
+                	grid.getCell(r + margin, c + margin).turnOn();
                 }
             }
         }
@@ -139,7 +139,7 @@ public class Conway extends Automaton {
         // update each cell based on neighbor counts
         for (int r = 0; r < rows; r++) {
             for (int c = 0; c < cols; c++) {
-                Cell cell = grid.cellAt(r, c);
+                Cell cell = grid.getCell(r, c);
                 updateCell(cell, counts[r][c]);
             }
         }
