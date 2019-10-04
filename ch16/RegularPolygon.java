@@ -56,13 +56,13 @@ public class RegularPolygon extends ColorPolygon {
         this.ypoints = new int[nsides];
         this.color = color;
 
-        // the angle (in radians) for each vertex
+        // the amount to rotate for each vertex (in radians)
         double angle = 2.0 * Math.PI / nsides;
 
         // rotation that makes the polygon right-side up
         double rotate = Math.PI / nsides + Math.PI / 2.0;
 
-        // compute x and y coordinates, centered around the origin
+        // compute x and y coordinates, centered at the origin
         for (int i = 0; i < nsides; i++) {
             double x = radius * Math.cos(i * angle + rotate);
             xpoints[i] = (int) Math.round(x);

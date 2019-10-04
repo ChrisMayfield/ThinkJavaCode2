@@ -7,7 +7,7 @@ import java.awt.Graphics;
 public class BlinkingPolygon extends RegularPolygon {
 
     protected boolean visible;
-    private int count;
+    protected int count;
 
     /**
      * Constructs a blinking polygon.

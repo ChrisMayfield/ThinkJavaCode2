@@ -32,4 +32,17 @@ public class ColorPolygon extends Polygon implements Actor {
         // do nothing
     }
 
+    /**
+     * Test code that creates a ColorPolygon.
+     * 
+     * @param args command-line arguments
+     */
+    public static void main(String[] args) {
+        ColorPolygon p = new ColorPolygon();
+        p.addPoint(57, 110);
+        p.addPoint(100, 35);
+        p.addPoint(143, 110);
+        p.color = Color.GREEN;
+    }
+
 }
