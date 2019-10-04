@@ -36,7 +36,6 @@ public class Sim3 implements ActionListener {
         // set up the window frame
         JFrame frame = new JFrame("Drawing with ActionListener");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setResizable(false);
         frame.add(drawing);
         frame.pack();
         frame.setVisible(true);

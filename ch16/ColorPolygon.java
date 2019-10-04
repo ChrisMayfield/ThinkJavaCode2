@@ -5,9 +5,9 @@ import java.awt.Polygon;
 /**
  * Specialization of Polygon that has a color and the ability to draw itself.
  */
-public class ColorPolygon extends Polygon {
+public class ColorPolygon extends Polygon implements Actor {
 
-    public Color color;
+    protected Color color;
 
     /**
      * Creates an empty polygon.
@@ -25,6 +25,11 @@ public class ColorPolygon extends Polygon {
     public void draw(Graphics g) {
         g.setColor(color);
         g.fillPolygon(this);
+    }
+
+    @Override
+    public void step() {
+        // do nothing
     }
 
 }

@@ -8,7 +8,7 @@ import java.util.ArrayList;
  */
 public class Drawing extends Canvas {
 
-    private ArrayList<Actor> list;
+    private ArrayList<ColorPolygon> list;
 
     /**
      * Constructs a drawing of given size.
@@ -19,16 +19,16 @@ public class Drawing extends Canvas {
     public Drawing(int width, int height) {
         setSize(width, height);
         setBackground(Color.WHITE);
-        list = new ArrayList<Actor>();
+        list = new ArrayList<ColorPolygon>();
     }
 
     /**
      * Adds a new actor to the drawing.
      * 
-     * @param actor the object to add
+     * @param cp the object to add
      */
-    public void add(Actor actor) {
-        list.add(actor);
+    public void add(ColorPolygon cp) {
+        list.add(cp);
     }
 
     /**
@@ -47,8 +47,8 @@ public class Drawing extends Canvas {
      */
     @Override
     public void paint(Graphics g) {
-        for (Actor actor : list) {
-            actor.draw(g);
+        for (ColorPolygon cp : list) {
+            cp.draw(g);
         }
     }
 
@@ -56,8 +56,8 @@ public class Drawing extends Canvas {
      * Calls the step method of each actor and updates the drawing.
      */
     public void step() {
-        for (Actor actor : list) {
-            actor.step();
+        for (ColorPolygon cp : list) {
+            cp.step();
         }
         repaint();
     }

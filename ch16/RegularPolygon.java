@@ -1,18 +1,14 @@
 import java.awt.Color;
-import java.awt.Graphics;
-import java.awt.Polygon;
 
 /**
  * A polygon that is equiangular (all angles are equal in measure) and
  * equilateral (all sides have the same length). It also has a color.
  */
-public class RegularPolygon extends Polygon implements Actor {
+public class RegularPolygon extends ColorPolygon {
 
     public static final String[] NAMES = {null, null, null,
             "Triangle", "Square", "Pentagon", "Hexagon",
             "Heptagon", "Octagon", "Nonagon", "Decagon"};
-
-    protected Color color;
 
     /**
      * Constructs a regular polygon, given the number of sides.
@@ -43,7 +39,7 @@ public class RegularPolygon extends Polygon implements Actor {
      */
     public RegularPolygon(int nsides, int radius, Color color) {
 
-        // validate and store arguments
+        // validate the arguments
         if (nsides < 3) {
             throw new IllegalArgumentException("invalid nsides");
         }
@@ -60,7 +56,7 @@ public class RegularPolygon extends Polygon implements Actor {
         this.ypoints = new int[nsides];
         this.color = color;
 
-        // the angle (in radians) at each vertex
+        // the angle (in radians) for each vertex
         double angle = 2.0 * Math.PI / nsides;
 
         // rotation that makes the polygon right-side up
@@ -73,17 +69,6 @@ public class RegularPolygon extends Polygon implements Actor {
             double y = radius * Math.sin(i * angle + rotate);
             ypoints[i] = (int) Math.round(y);
         }
-    }
-
-    @Override
-    public void draw(Graphics g) {
-        g.setColor(color);
-        g.fillPolygon(this);
-    }
-
-    @Override
-    public void step() {
-        // do nothing
     }
 
     @Override

@@ -1,0 +1,10 @@
+Source:
+https://publicdomainvectors.org/en/free-clipart/Smiley-face-icon-vector-image/15374.html
+
+Description:
+Vector illustration of a smiley face icon. Color drawing of a yellow smiling emoticon.
+
+License:
+Public domain
+
+inkscape -z -e face-smile.png -w 100 -h 100 face-smile.svg

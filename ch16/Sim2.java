@@ -33,7 +33,6 @@ public class Sim2 {
         // set up the window frame
         JFrame frame = new JFrame("Drawing with Thread.sleep");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setResizable(false);
         frame.add(drawing);
         frame.pack();
         frame.setVisible(true);
