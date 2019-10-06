@@ -29,8 +29,15 @@ public abstract class Automaton {
         frame.add(this.grid);
         frame.pack();
         frame.setVisible(true);
+        this.mainloop(rate);
+    }
 
-        // main simulation loop
+    /**
+     * The simulation loop.
+     * 
+     * @param rate frames per second
+     */
+    private void mainloop(int rate) {
         while (true) {
 
             // update the drawing
