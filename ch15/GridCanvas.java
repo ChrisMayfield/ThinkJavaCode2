@@ -61,7 +61,7 @@ public class GridCanvas extends Canvas {
      * @param r row index
      * @param c column index
      */
-    public void turnCellOn(int r, int c) {
+    public void turnOn(int r, int c) {
         array[r][c].turnOn();
     }
 

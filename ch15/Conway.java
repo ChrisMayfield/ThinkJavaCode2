@@ -13,14 +13,14 @@ public class Conway extends Automaton {
      */
     public Conway() {
         grid = new GridCanvas(30, 25, SIZE);
-        grid.turnCellOn(1, 2);
-        grid.turnCellOn(2, 2);
-        grid.turnCellOn(3, 2);
-        grid.turnCellOn(6, 1);
-        grid.turnCellOn(7, 2);
-        grid.turnCellOn(7, 3);
-        grid.turnCellOn(8, 1);
-        grid.turnCellOn(8, 2);
+        grid.turnOn(1, 2);
+        grid.turnOn(2, 2);
+        grid.turnOn(3, 2);
+        grid.turnOn(6, 1);
+        grid.turnOn(7, 2);
+        grid.turnOn(7, 3);
+        grid.turnOn(8, 1);
+        grid.turnOn(8, 2);
     }
 
     /**
@@ -71,7 +71,7 @@ public class Conway extends Automaton {
             for (int c = 0; c < line.length(); c++) {
                 char x = line.charAt(c);
                 if (x == 'O') {
-                	grid.getCell(r + margin, c + margin).turnOn();
+                    grid.turnOn(r + margin, c + margin);
                 }
             }
         }
@@ -122,27 +122,46 @@ public class Conway extends Automaton {
     }
 
     /**
-     * Simulates one round of Conway's Game of Life.
+     * Counts the neighbors before changing anything.
+     * 
+     * @return number of neighbors for each cell
      */
-    public void update() {
+    private int[][] countNeighbors() {
         int rows = grid.numRows();
         int cols = grid.numCols();
 
-        // count neighbors before changing anything
         int[][] counts = new int[rows][cols];
         for (int r = 0; r < rows; r++) {
             for (int c = 0; c < cols; c++) {
                 counts[r][c] = countAlive(r, c);
             }
         }
+        return counts;
+    }
 
-        // update each cell based on neighbor counts
+    /**
+     * Updates each cell based on neighbor counts.
+     * 
+     * @param counts number of neighbors for each cell
+     */
+    private void updateGrid(int[][] counts) {
+        int rows = grid.numRows();
+        int cols = grid.numCols();
+
         for (int r = 0; r < rows; r++) {
             for (int c = 0; c < cols; c++) {
                 Cell cell = grid.getCell(r, c);
                 updateCell(cell, counts[r][c]);
             }
         }
+    }
+
+    /**
+     * Simulates one round of Conway's Game of Life.
+     */
+    public void update() {
+        int[][] counts = countNeighbors();
+        updateGrid(counts);
     }
 
     /**

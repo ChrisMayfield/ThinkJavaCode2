@@ -21,10 +21,9 @@ public class Langton extends Automaton {
     }
 
     /**
-     * Simulates one round of Langton's Ant.
+     * Flip the color of the current cell.
      */
-    public void update() {
-
+    private void flipCell() {
         Cell cell = grid.getCell(xpos, ypos);
         if (cell.isOff()) {
             // at a white square; turn right and flip color
@@ -35,8 +34,12 @@ public class Langton extends Automaton {
             head = (head + 3) % 4;
             cell.turnOff();
         }
+    }
 
-        // move forward one unit
+    /**
+     * Move the ant forward one unit.
+     */
+    private void moveAnt() {
         if (head == 0) {
             ypos -= 1;
         } else if (head == 1) {
@@ -46,8 +49,14 @@ public class Langton extends Automaton {
         } else {
             xpos -= 1;
         }
+    }
 
-        // TODO: draw a triangle to show the ant
+    /**
+     * Simulates one round of Langton's Ant.
+     */
+    public void update() {
+        flipCell();
+        moveAnt();
     }
 
     /**

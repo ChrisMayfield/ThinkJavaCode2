@@ -6,7 +6,7 @@ import java.awt.Graphics;
  */
 public class Cell {
 
-	public static final Color colors[] = {Color.WHITE, Color.BLACK};
+    public static final Color[] COLORS = {Color.WHITE, Color.BLACK};
 
     private final int x;
     private final int y;
@@ -33,8 +33,7 @@ public class Cell {
      * @param g graphics context
      */
     public void draw(Graphics g) {
-    	Color color = colors[this.state];
-        g.setColor(color);
+        g.setColor(COLORS[this.state]);
         g.fillRect(x + 1, y + 1, size - 1, size - 1);
         g.setColor(Color.LIGHT_GRAY);
         g.drawRect(x, y, size, size);
