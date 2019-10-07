@@ -34,8 +34,8 @@ public class BlinkingPolygon extends RegularPolygon {
         // toggle visibility every 10 steps
         count++;
         if (count == 10) {
-            count = 0;
             visible = !visible;
+            count = 0;
         }
     }
 

@@ -25,10 +25,10 @@ public class Drawing extends Canvas {
     /**
      * Adds a new actor to the drawing.
      * 
-     * @param cp the object to add
+     * @param dp the object to add
      */
-    public void add(ColorPolygon cp) {
-        list.add(cp);
+    public void add(ColorPolygon dp) {
+        list.add(dp);
     }
 
     /**
@@ -47,8 +47,8 @@ public class Drawing extends Canvas {
      */
     @Override
     public void paint(Graphics g) {
-        for (ColorPolygon cp : list) {
-            cp.draw(g);
+        for (ColorPolygon dp : list) {
+            dp.draw(g);
         }
     }
 
@@ -56,8 +56,8 @@ public class Drawing extends Canvas {
      * Calls the step method of each actor and updates the drawing.
      */
     public void step() {
-        for (ColorPolygon cp : list) {
-            cp.step();
+        for (ColorPolygon dp : list) {
+            dp.step();
         }
         repaint();
     }

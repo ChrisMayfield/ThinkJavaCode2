@@ -14,9 +14,9 @@ public class Sim1 {
     public static void main(String[] args) {
 
         // create some regular polygons
-        ColorPolygon p1 = new RegularPolygon(3, 50, Color.GREEN);
-        ColorPolygon p2 = new RegularPolygon(6, 50, Color.ORANGE);
-        ColorPolygon p3 = new RegularPolygon(360, 50, Color.BLUE);
+        DrawablePolygon p1 = new RegularPolygon(3, 50, Color.GREEN);
+        DrawablePolygon p2 = new RegularPolygon(6, 50, Color.ORANGE);
+        DrawablePolygon p3 = new RegularPolygon(360, 50, Color.BLUE);
 
         // move them out of the corner
         p1.translate(100, 80);

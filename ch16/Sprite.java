@@ -12,7 +12,6 @@ import javax.imageio.ImageIO;
 public class Sprite implements Actor, KeyListener {
 
     private Image image;
-
     private int xpos;
     private int ypos;
     private int dx;
@@ -26,10 +25,10 @@ public class Sprite implements Actor, KeyListener {
      * @param ypos initial Y coordinate
      */
     public Sprite(String path, int xpos, int ypos) {
+        this.xpos = xpos;
+        this.ypos = ypos;
         try {
             this.image = ImageIO.read(new File(path));
-            this.xpos = xpos;
-            this.ypos = ypos;
         } catch (IOException e) {
             e.printStackTrace();
         }

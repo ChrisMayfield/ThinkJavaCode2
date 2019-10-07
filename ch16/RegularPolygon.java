@@ -4,7 +4,7 @@ import java.awt.Color;
  * A polygon that is equiangular (all angles are equal in measure) and
  * equilateral (all sides have the same length). It also has a color.
  */
-public class RegularPolygon extends ColorPolygon {
+public class RegularPolygon extends DrawablePolygon {
 
     public static final String[] NAMES = {null, null, null,
             "Triangle", "Square", "Pentagon", "Hexagon",

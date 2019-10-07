@@ -5,14 +5,14 @@ import java.awt.Polygon;
 /**
  * Specialization of Polygon that has a color and the ability to draw itself.
  */
-public class ColorPolygon extends Polygon implements Actor {
+public class DrawablePolygon extends Polygon implements Actor {
 
-    protected Color color;
+    public Color color;
 
     /**
      * Creates an empty polygon.
      */
-    public ColorPolygon() {
+    public DrawablePolygon() {
         super();
         color = Color.GRAY;
     }
@@ -38,7 +38,7 @@ public class ColorPolygon extends Polygon implements Actor {
      * @param args command-line arguments
      */
     public static void main(String[] args) {
-        ColorPolygon p = new ColorPolygon();
+        DrawablePolygon p = new DrawablePolygon();
         p.addPoint(57, 110);
         p.addPoint(100, 35);
         p.addPoint(143, 110);
