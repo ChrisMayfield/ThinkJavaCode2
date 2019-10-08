@@ -2,7 +2,7 @@ import java.awt.Point;
 import java.awt.Rectangle;
 
 /**
- * Demonstates use of Point and Rectangle classes.
+ * Demonstrates use of Point and Rectangle classes.
  */
 public class PointRect {
 

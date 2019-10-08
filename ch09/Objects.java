@@ -1,7 +1,7 @@
 import java.math.BigInteger;
 
 /**
- * Demonstates uses of objects and wrappers.
+ * Demonstrates uses of objects and wrappers.
  */
 public class Objects {
 
@@ -24,8 +24,8 @@ public class Objects {
 
         // Wrapper classes
 
-        Integer x = new Integer(123);
-        Integer y = new Integer(123);
+        Integer x = Integer.valueOf(123);
+        Integer y = Integer.valueOf(123);
         if (x == y) {                           // false
             System.out.println("x and y are the same object");
         }

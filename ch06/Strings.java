@@ -1,5 +1,5 @@
 /**
- * Demonstates uses of Strings.
+ * Demonstrates uses of Strings.
  */
 public class Strings {
 
