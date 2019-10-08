@@ -8,6 +8,7 @@ public class Mickey extends Canvas {
 
     public static void main(String[] args) {
         JFrame frame = new JFrame("Mickey Mouse");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         Canvas canvas = new Mickey();
         canvas.setSize(400, 400);
         canvas.setBackground(Color.white);
@@ -28,14 +29,14 @@ public class Mickey extends Canvas {
     public void mickey(Graphics g, Rectangle bb) {
         boxOval(g, bb);
 
-        int dx = bb.width / 2;
-        int dy = bb.height / 2;
-        Rectangle half = new Rectangle(bb.x, bb.y, dx, dy);
+        int hx = bb.width / 2;
+        int hy = bb.height / 2;
+        Rectangle half = new Rectangle(bb.x, bb.y, hx, hy);
 
-        half.translate(-dx / 2, -dy / 2);
+        half.translate(-hx / 2, -hy / 2);
         boxOval(g, half);
 
-        half.translate(dx * 2, 0);
+        half.translate(hx * 2, 0);
         boxOval(g, half);
     }
 

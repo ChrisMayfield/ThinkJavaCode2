@@ -7,6 +7,7 @@ public class Moire extends Canvas {
 
     public static void main(String[] args) {
         JFrame frame = new JFrame("Moire Pattern");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         Canvas canvas = new Moire();
         canvas.setSize(400, 400);
         canvas.setBackground(Color.white);
