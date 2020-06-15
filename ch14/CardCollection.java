@@ -25,6 +25,13 @@ public class CardCollection {
     }
 
     /**
+     * Returns a string representation of the card collection.
+     */
+    public String toString() {
+        return label + ": " + cards.toString();
+    }
+
+    /**
      * Adds the given card to the collection.
      */
     public void addCard(Card card) {
@@ -42,8 +49,15 @@ public class CardCollection {
      * Removes and returns the last card.
      */
     public Card popCard() {
-        int i = size() - 1;
+        int i = cards.size() - 1;    // from the end of the list
         return popCard(i);
+    }
+
+    /**
+     * True if the collection is empty, false otherwise.
+     */
+    public boolean isEmpty() {
+        return cards.isEmpty();
     }
 
     /**
@@ -51,31 +65,6 @@ public class CardCollection {
      */
     public int size() {
         return cards.size();
-    }
-
-    /**
-     * True if the collection is empty, false otherwise.
-     */
-    public boolean empty() {
-        return cards.size() == 0;
-    }
-
-    /**
-     * Moves n cards from this collection to the given collection.
-     */
-    public void deal(CardCollection that, int n) {
-        for (int i = 0; i < n; i++) {
-            Card card = popCard();
-            that.addCard(card);
-        }
-    }
-
-    /**
-     * Moves all remaining cards to the given collection.
-     */
-    public void dealAll(CardCollection that) {
-        int n = size();
-        deal(that, n);
     }
 
     /**
@@ -89,7 +78,7 @@ public class CardCollection {
      * Returns the last card.
      */
     public Card lastCard() {
-        int i = size() - 1;
+        int i = cards.size() - 1;
         return cards.get(i);
     }
 
@@ -107,17 +96,28 @@ public class CardCollection {
      */
     public void shuffle() {
         Random random = new Random();
-        for (int i = size() - 1; i > 0; i--) {
-            int j = random.nextInt(i);
+        for (int i = cards.size() - 1; i > 0; i--) {
+            int j = random.nextInt(i + 1);
             swapCards(i, j);
         }
     }
 
     /**
-     * Returns a string representation of the card collection.
+     * Moves n cards from this collection to the given collection.
      */
-    public String toString() {
-        return label + ": " + cards.toString();
+    public void deal(CardCollection that, int n) {
+        for (int i = 0; i < n; i++) {
+            Card card = popCard();
+            that.addCard(card);
+        }
+    }
+
+    /**
+     * Moves all remaining cards to the given collection.
+     */
+    public void dealAll(CardCollection that) {
+        int n = cards.size();
+        deal(that, n);
     }
 
 }

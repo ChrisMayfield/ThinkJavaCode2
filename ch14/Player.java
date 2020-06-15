@@ -70,16 +70,9 @@ public class Player {
      * Checks whether two cards match.
      */
     public static boolean cardMatches(Card card1, Card card2) {
-        if (card1.getSuit() == card2.getSuit()) {
-            return true;
-        }
-        if (card1.getRank() == card2.getRank()) {
-            return true;
-        }
-        if (card1.getRank() == 8) {
-            return true;
-        }
-        return false;
+        return card1.getSuit() == card2.getSuit()
+            || card1.getRank() == card2.getRank()
+            || card1.getRank() == 8;
     }
 
     /**

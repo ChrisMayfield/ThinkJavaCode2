@@ -1,9 +1,8 @@
 import java.util.Scanner;
 
 /**
- * Simulates a game of Crazy Eights.  See
- * https://en.wikipedia.org/wiki/Crazy_Eights
- * for basic play and scoring rules.
+ * Simulates a game of Crazy Eights.
+ * See https://en.wikipedia.org/wiki/Crazy_Eights.
  */
 public class Eights {
 
@@ -21,12 +20,10 @@ public class Eights {
         deck.shuffle();
 
         // deal cards to each player
-        int handSize = 5;
         one = new Player("Allen");
-        deck.deal(one.getHand(), handSize);
-
+        deck.deal(one.getHand(), 5);
         two = new Player("Chris");
-        deck.deal(two.getHand(), handSize);
+        deck.deal(two.getHand(), 5);
 
         // turn one card face up
         discardPile = new Hand("Discards");
@@ -44,7 +41,7 @@ public class Eights {
      * Returns true if either hand is empty.
      */
     public boolean isDone() {
-        return one.getHand().empty() || two.getHand().empty();
+        return one.getHand().isEmpty() || two.getHand().isEmpty();
     }
 
     /**
@@ -68,7 +65,7 @@ public class Eights {
      * Returns a card from the draw pile.
      */
     public Card drawCard() {
-        if (drawPile.empty()) {
+        if (drawPile.isEmpty()) {
             reshuffle();
         }
         return drawPile.popCard();

@@ -43,7 +43,6 @@ Checkstyle configuration for Think Java, 2nd Edition.
             <property name="validateOnlyOverlapping" value="false"/>
 -->
         </module>
-        <module name="ReturnCount"/>
         <module name="SimplifyBooleanExpression"/>
         <module name="SimplifyBooleanReturn"/>
         <module name="StringLiteralEquality"/>
@@ -62,9 +61,6 @@ Checkstyle configuration for Think Java, 2nd Edition.
 
         <!-- See http://checkstyle.sf.net/config_javadoc.html -->
         <module name="AtclauseOrder"/>
-<!--
-        <module name="JavadocMethod"/>
--->
         <module name="JavadocStyle"/>
         <module name="JavadocType"/>
         <module name="NonEmptyAtclauseDescription"/>
