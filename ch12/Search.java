@@ -63,28 +63,6 @@ public class Search {
     }
 
     /**
-     * Binary search (recursive version).
-     */
-    public static int binarySearch(Card[] cards, Card target,
-                                   int low, int high) {
-        System.out.println(low + ", " + high);
-
-        if (high < low) {
-            return -1;
-        }
-        int mid = (low + high) / 2;                     // step 1
-        int comp = cards[mid].compareTo(target);
-
-        if (comp == 0) {                                // step 2
-            return mid;
-        } else if (comp < 0) {                          // step 3
-            return binarySearch(cards, target, mid + 1, high);
-        } else {                                        // step 4
-            return binarySearch(cards, target, low, mid - 1);
-        }
-    }
-
-    /**
      * Demonstrates how to call the search methods.
      */
     public static void main(String[] args) {
@@ -102,10 +80,6 @@ public class Search {
 
         System.out.println("Failed binary search");
         System.out.println(binarySearch(cards, fake));
-        System.out.println();
-
-        System.out.println("Recursive binary search");
-        System.out.println(binarySearch(cards, jack, 0, 51));
         System.out.println();
     }
 

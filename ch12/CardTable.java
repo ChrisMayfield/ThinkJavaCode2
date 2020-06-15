@@ -15,11 +15,13 @@ public class CardTable extends Canvas {
      * Creates a CardTable.
      * cardset is the name of the folder that contains the card images.
      */
-    public CardTable(String cardset) {
+    public CardTable() {
         setBackground(new Color(0x088A4B));
 
         // create a 2-D array of card images
         images = new Image[14][4];
+
+        String cardset = "cardset-oxymoron";
         String suits = "cdhs";
 
         for (int suit = 0; suit <= 3; suit++) {
@@ -81,8 +83,7 @@ public class CardTable extends Canvas {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         // add the CardTable
-        String cardset = "cardset-oxymoron";
-        Canvas canvas = new CardTable(cardset);
+        Canvas canvas = new CardTable();
         frame.getContentPane().add(canvas);
 
         // show the frame
