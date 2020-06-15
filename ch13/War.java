@@ -16,7 +16,7 @@ public class War {
         p2.addDeck(deck.subdeck(26, 51));
 
         // while both piles are not empty
-        while (p1.size() > 0 && p2.size() > 0) {
+        while (!p1.isEmpty() && !p2.isEmpty()) {
             Card c1 = p1.popCard();
             Card c2 = p2.popCard();
 
@@ -34,7 +34,7 @@ public class War {
         }
 
         // display the winner
-        if (p1.size() > 0) {
+        if (p2.isEmpty()) {
             System.out.println("Player 1 wins!");
         } else {
             System.out.println("Player 2 wins!");

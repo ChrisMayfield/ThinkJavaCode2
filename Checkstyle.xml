@@ -62,14 +62,11 @@ Checkstyle configuration for Think Java, 2nd Edition.
 
         <!-- See http://checkstyle.sf.net/config_javadoc.html -->
         <module name="AtclauseOrder"/>
-        <module name="JavadocMethod"/>
-        <module name="JavadocStyle"/>
-        <module name="JavadocType">
 <!--
-           <property name="authorFormat" value="\S"/>
-           <property name="versionFormat" value="\S"/>
+        <module name="JavadocMethod"/>
 -->
-        </module>
+        <module name="JavadocStyle"/>
+        <module name="JavadocType"/>
         <module name="NonEmptyAtclauseDescription"/>
 
         <!-- See http://checkstyle.sf.net/config_misc.html -->

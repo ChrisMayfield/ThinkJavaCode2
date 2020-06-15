@@ -31,17 +31,17 @@ public class Pile {
     }
 
     /**
+     * Returns true if this pile has no cards.
+     */
+    public boolean isEmpty() {
+        return this.cards.isEmpty();
+    }
+
+    /**
      * Removes a card from the top of the pile.
      */
     public Card popCard() {
         return this.cards.remove(0);
-    }
-
-    /**
-     * Returns the number of cards in the pile.
-     */
-    public int size() {
-        return this.cards.size();
     }
 
 }

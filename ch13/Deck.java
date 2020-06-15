@@ -1,10 +1,13 @@
-import java.util.Arrays;
 import java.util.Random;
 
 /**
  * A deck of playing cards (of fixed length).
  */
 public class Deck {
+
+    // This is a class variable so we don't have to create
+    // a new Random object every time we call randomInt.
+    private static Random random = new Random();
 
     private Card[] cards;
 
@@ -49,7 +52,7 @@ public class Deck {
      * Returns a string representation of the deck.
      */
     public String toString() {
-        return Arrays.toString(this.cards);
+        return "TODO";
     }
 
     /**
@@ -122,4 +125,11 @@ public class Deck {
      */
     public void insertionSort() {
     }
+
+    /**
+     * Helper method for insertion sort.
+     */
+    private void insert(Card card, int i) {
+    }
+
 }
