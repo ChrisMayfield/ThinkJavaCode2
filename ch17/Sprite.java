@@ -11,11 +11,11 @@ import javax.imageio.ImageIO;
  */
 public class Sprite implements Actor, KeyListener {
 
-    private Image image;
     private int xpos;
     private int ypos;
     private int dx;
     private int dy;
+    private Image image;
 
     /**
      * Reads a sprite from a png file.
@@ -43,11 +43,6 @@ public class Sprite implements Actor, KeyListener {
     public void step() {
         xpos += dx;
         ypos += dy;
-    }
-
-    @Override
-    public void keyTyped(KeyEvent e) {
-        // do nothing
     }
 
     @Override
@@ -80,6 +75,11 @@ public class Sprite implements Actor, KeyListener {
                 dx = 0;
                 break;
         }
+    }
+
+    @Override
+    public void keyTyped(KeyEvent e) {
+        // do nothing
     }
 
 }

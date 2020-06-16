@@ -7,7 +7,7 @@ import java.awt.Polygon;
  */
 public class DrawablePolygon extends Polygon implements Actor {
 
-    public Color color;
+    protected Color color;
 
     /**
      * Creates an empty polygon.

@@ -6,10 +6,6 @@ import java.awt.Color;
  */
 public class RegularPolygon extends DrawablePolygon {
 
-    public static final String[] NAMES = {null, null, null,
-            "Triangle", "Square", "Pentagon", "Hexagon",
-            "Heptagon", "Octagon", "Nonagon", "Decagon"};
-
     /**
      * Constructs a regular polygon, given the number of sides.
      * 
@@ -26,7 +22,7 @@ public class RegularPolygon extends DrawablePolygon {
      * @param radius from center to vertex
      */
     public RegularPolygon(int nsides, int radius) {
-        this(nsides, radius, Color.BLACK);
+        this(nsides, radius, Color.GRAY);
     }
 
     /**
@@ -57,43 +53,18 @@ public class RegularPolygon extends DrawablePolygon {
         this.color = color;
 
         // the amount to rotate for each vertex (in radians)
-        double angle = 2.0 * Math.PI / nsides;
+        double theta = 2.0 * Math.PI / nsides;
 
         // rotation that makes the polygon right-side up
         double rotate = Math.PI / nsides + Math.PI / 2.0;
 
         // compute x and y coordinates, centered at the origin
         for (int i = 0; i < nsides; i++) {
-            double x = radius * Math.cos(i * angle + rotate);
+            double x = radius * Math.cos(i * theta + rotate);
+            double y = radius * Math.sin(i * theta + rotate);
             xpoints[i] = (int) Math.round(x);
-            double y = radius * Math.sin(i * angle + rotate);
             ypoints[i] = (int) Math.round(y);
         }
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder str = new StringBuilder();
-        if (npoints < NAMES.length) {
-            str.append(NAMES[npoints]);
-        } else {
-            str.append("Polygon");
-        }
-        // append the list of vertexes
-        str.append('[');
-        for (int i = 0; i < npoints; i++) {
-            if (i > 0) {
-                str.append(", ");
-            }
-            // append the next (x, y) point
-            str.append('(');
-            str.append(xpoints[i]);
-            str.append(", ");
-            str.append(ypoints[i]);
-            str.append(')');
-        }
-        str.append(']');
-        return str.toString();
     }
 
 }

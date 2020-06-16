@@ -16,11 +16,12 @@ public class VideoGame implements ActionListener {
      * Set up the drawing and window frame.
      */
     public VideoGame() {
-        Sprite sprite = new Sprite("face-smile.png", 50, 50);
+        Sprite sprite = new Sprite("face-smile.png", 25, 150);
         drawing = new Drawing(800, 600);
         drawing.add(sprite);
         drawing.addKeyListener(sprite);
         drawing.setFocusable(true);
+
         JFrame frame = new JFrame("Video Game");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.add(drawing);
@@ -42,7 +43,7 @@ public class VideoGame implements ActionListener {
      */
     public static void main(String[] args) {
         VideoGame game = new VideoGame();
-        Timer timer = new Timer(25, game);
+        Timer timer = new Timer(33, game);
         timer.start();
     }
 

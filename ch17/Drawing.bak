@@ -4,11 +4,11 @@ import java.awt.Graphics;
 import java.util.ArrayList;
 
 /**
- * Draws a collection of actors.
+ * Draws a collection of DrawablePolygons.
  */
 public class Drawing extends Canvas {
 
-    private ArrayList<ColorPolygon> list;
+    private ArrayList<DrawablePolygon> list;
 
     /**
      * Constructs a drawing of given size.
@@ -19,7 +19,7 @@ public class Drawing extends Canvas {
     public Drawing(int width, int height) {
         setSize(width, height);
         setBackground(Color.WHITE);
-        list = new ArrayList<ColorPolygon>();
+        list = new ArrayList<DrawablePolygon>();
     }
 
     /**
@@ -27,17 +27,8 @@ public class Drawing extends Canvas {
      * 
      * @param dp the object to add
      */
-    public void add(ColorPolygon dp) {
+    public void add(DrawablePolygon dp) {
         list.add(dp);
-    }
-
-    /**
-     * Gets current actors as an array.
-     * 
-     * @return array of actor objects
-     */
-    public Object[] getActors() {
-        return list.toArray();
     }
 
     /**
@@ -47,7 +38,7 @@ public class Drawing extends Canvas {
      */
     @Override
     public void paint(Graphics g) {
-        for (ColorPolygon dp : list) {
+        for (DrawablePolygon dp : list) {
             dp.draw(g);
         }
     }
@@ -56,7 +47,7 @@ public class Drawing extends Canvas {
      * Calls the step method of each actor and updates the drawing.
      */
     public void step() {
-        for (ColorPolygon dp : list) {
+        for (DrawablePolygon dp : list) {
             dp.step();
         }
         repaint();

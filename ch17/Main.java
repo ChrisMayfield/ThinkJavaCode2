@@ -4,7 +4,7 @@ import javax.swing.JFrame;
 /**
  * Initial drawing of stationary objects.
  */
-public class Sim1 {
+public class Main {
 
     /**
      * Test program that draws a few polygons.
@@ -30,7 +30,7 @@ public class Sim1 {
         drawing.add(p3);
 
         // set up the window frame
-        JFrame frame = new JFrame("Drawing (no animation)");
+        JFrame frame = new JFrame("Drawing");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.add(drawing);
         frame.pack();
