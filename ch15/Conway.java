@@ -1,7 +1,11 @@
+import javax.swing.JFrame;
+
 /**
  * Conway's Game of Life.
  */
-public class Conway extends Automaton {
+public class Conway {
+
+    private GridCanvas grid;
 
     /**
      * Creates a grid with two Blinkers.
@@ -104,6 +108,27 @@ public class Conway extends Automaton {
     }
 
     /**
+     * The simulation loop.
+     * 
+     * @param rate frames per second
+     */
+    private void mainloop() {
+        while (true) {
+
+            // update the drawing
+            this.update();
+            grid.repaint();
+
+            // delay the simulation
+            try {
+                Thread.sleep(500);
+            } catch (InterruptedException e) {
+                // do nothing
+            }
+        }
+    }
+
+    /**
      * Creates and runs the simulation.
      * 
      * @param args command-line arguments
@@ -111,7 +136,13 @@ public class Conway extends Automaton {
     public static void main(String[] args) {
         String title = "Conway's Game of Life";
         Conway game = new Conway();
-        game.run(title, 2);
+        JFrame frame = new JFrame(title);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setResizable(false);
+        frame.add(game.grid);
+        frame.pack();
+        frame.setVisible(true);
+        game.mainloop();
     }
 
 }

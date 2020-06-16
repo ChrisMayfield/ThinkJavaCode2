@@ -6,8 +6,6 @@ import javax.swing.JFrame;
  */
 public abstract class Automaton {
 
-    public static final int SIZE = 20;
-
     protected GridCanvas grid;
 
     /**

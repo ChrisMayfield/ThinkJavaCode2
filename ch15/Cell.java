@@ -66,4 +66,5 @@ public class Cell {
     public void turnOn() {
         state = 1;
     }
+
 }
