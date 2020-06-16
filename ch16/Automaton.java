@@ -14,23 +14,6 @@ public abstract class Automaton {
     public abstract void update();
 
     /**
-     * Creates a JFrame and runs the automaton.
-     * 
-     * @param title the frame title
-     * @param rate frames per second
-     */
-    public void run(String title, int rate) {
-        // set up the window frame
-        JFrame frame = new JFrame(title);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setResizable(false);
-        frame.add(this.grid);
-        frame.pack();
-        frame.setVisible(true);
-        this.mainloop(rate);
-    }
-
-    /**
      * The simulation loop.
      * 
      * @param rate frames per second
@@ -49,6 +32,23 @@ public abstract class Automaton {
                 // do nothing
             }
         }
+    }
+
+    /**
+     * Creates a JFrame and runs the automaton.
+     * 
+     * @param title the frame title
+     * @param rate frames per second
+     */
+    public void run(String title, int rate) {
+        // set up the window frame
+        JFrame frame = new JFrame(title);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setResizable(false);
+        frame.add(this.grid);
+        frame.pack();
+        frame.setVisible(true);
+        this.mainloop(rate);
     }
 
 }
