@@ -10,6 +10,9 @@ public class PrintTime {
         int hour = 11;
         int minute = 59;
         printTime(hour, minute);
+
+        // additional example for stack diagram
+        printTime(hour + 1, 0);
     }
 
 }
