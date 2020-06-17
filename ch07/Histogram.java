@@ -31,8 +31,7 @@ public class Histogram {
     }
 
     public static void main(String[] args) {
-        int numValues = 8;
-        int[] array = randomArray(numValues);
+        int[] array = randomArray(8);
         ArrayExamples.printArray(array);
 
         int[] scores = randomArray(30);

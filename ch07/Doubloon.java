@@ -2,7 +2,7 @@
  * Example from the end of Chapter 7.
  */
 public class Doubloon {
-    
+
     public static boolean isDoubloon(String s) {
         
         // count the number of times each letter appears
@@ -21,10 +21,9 @@ public class Doubloon {
         }
         return true;
     }
-    
+
     public static void main(String[] args) {
-        System.out.println(isDoubloon("Mama"));
-        System.out.println(isDoubloon("Lama"));
+        System.out.println(isDoubloon("Mama"));  // true
+        System.out.println(isDoubloon("Lama"));  // false
     }
-    
 }
