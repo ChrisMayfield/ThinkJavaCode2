@@ -3,26 +3,35 @@
  */
 public class CodingBat {
 
-    public static String noX(String str) {
+    /**
+     * See https://codingbat.com/prob/p118230.
+     */
+    public String noX(String str) {
         if (str.length() == 0) {
             return "";
         }
-        char c = str.charAt(0);
-        if (c == 'x') {
-            return noX(str.substring(1));
+        char first = str.charAt(0);
+        String rest = str.substring(1);
+        String recurse = noX(rest);
+        if (first == 'x') {
+            return recurse;
         } else {
-            return c + noX(str.substring(1));
+            return first + recurse;
         }
     }
 
+    /**
+     * See https://codingbat.com/prob/p135988.
+     */
     public int array11(int[] nums, int index) {
         if (index >= nums.length) {
             return 0;
         }
+        int recurse = array11(nums, index + 1);
         if (nums[index] == 11) {
-            return 1 + array11(nums, index + 1);
+            return recurse + 1;
         } else {
-            return array11(nums, index + 1);
+            return recurse;
         }
     }
 

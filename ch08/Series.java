@@ -1,6 +1,3 @@
-/**
- * Examples from Chapter 8.
- */
 public class Series {
 
     public static int factorial(int n) {

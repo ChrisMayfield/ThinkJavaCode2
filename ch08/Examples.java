@@ -1,19 +1,4 @@
-public class Recursion {
-
-    public static void main(String[] args) {
-        System.out.println("countdown");
-        countdown(3);
-
-        System.out.println("nLines");
-        nLines(3);
-
-        System.out.println("countup");
-        countup(3);
-
-        System.out.println("displayBinary");
-        displayBinary(23);
-        System.out.println();
-    }
+public class Examples {
 
     public static void countdown(int n) {
         if (n == 0) {
@@ -22,10 +7,6 @@ public class Recursion {
             System.out.println(n);
             countdown(n - 1);
         }
-    }
-
-    public static void newLine() {
-        System.out.println();
     }
 
     public static void nLines(int n) {
@@ -54,6 +35,23 @@ public class Recursion {
             displayBinary(value / 2);
             System.out.print(value % 2);
         }
+    }
+
+    public static void main(String[] args) {
+        System.out.println("countdown");
+        countdown(3);
+
+        System.out.println("nLines");
+        nLines(3);
+
+        // forever("Ha!");
+
+        System.out.println("countup");
+        countup(3);
+
+        System.out.println("displayBinary");
+        displayBinary(23);
+        System.out.println();
     }
 
 }
