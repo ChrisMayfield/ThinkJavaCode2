@@ -16,6 +16,9 @@ public class ScannerBug {
         age = in.nextInt();
         System.out.printf("Hello %s, age %d\n", name, age);
 
+        in.reset();
+        System.out.println();
+
         System.out.print("What is your age? ");
         age = in.nextInt();
         System.out.print("What is your name? ");
