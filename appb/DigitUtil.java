@@ -13,20 +13,16 @@ public class DigitUtil {
      * @return true if x has one digit, false otherwise
      */
     public static boolean isSingleDigit(int x) {
-        if (x > -10 && x < 10) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    public static boolean isSingleDigit2(int x) {
         return x > -10 && x < 10;
     }
 
     public static void main(String[] args) {
         System.out.println(isSingleDigit(2));
+
         boolean bigFlag = !isSingleDigit(17);
+        if (bigFlag) {
+            System.out.println("not single");
+        }
 
         int z = 9;
         if (isSingleDigit(z)) {

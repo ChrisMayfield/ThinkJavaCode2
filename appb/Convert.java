@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017 Allen Downey and Chris Mayfield
+ * Copyright (c) 2019 Allen Downey and Chris Mayfield
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,7 +23,7 @@
 import java.util.Scanner;
 
 /**
- * Utility class for converting to/from the metric system.
+ * Methods for converting to/from the metric system.
  *
  * @author Allen Downey
  * @author Chris Mayfield

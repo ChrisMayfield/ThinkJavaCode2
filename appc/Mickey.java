@@ -11,7 +11,7 @@ public class Mickey extends Canvas {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         Canvas canvas = new Mickey();
         canvas.setSize(400, 400);
-        canvas.setBackground(Color.white);
+        canvas.setBackground(Color.WHITE);
         frame.add(canvas);
         frame.pack();
         frame.setVisible(true);

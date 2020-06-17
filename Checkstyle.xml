@@ -34,7 +34,6 @@ Checkstyle configuration for Think Java, 2nd Edition.
         <module name="FallThrough"/>
         <module name="InnerAssignment"/>
         <module name="ModifiedControlVariable"/>
-        <module name="MultipleVariableDeclarations"/>
         <module name="OneStatementPerLine"/>
         <module name="ParameterAssignment"/>
         <module name="RequireThis">
@@ -62,7 +61,6 @@ Checkstyle configuration for Think Java, 2nd Edition.
         <!-- See http://checkstyle.sf.net/config_javadoc.html -->
         <module name="AtclauseOrder"/>
         <module name="JavadocStyle"/>
-        <module name="JavadocType"/>
         <module name="NonEmptyAtclauseDescription"/>
 
         <!-- See http://checkstyle.sf.net/config_misc.html -->
