@@ -1,5 +1,5 @@
 /**
- * Examples from Chapter 6.
+ * Demonstrates uses of loops.
  */
 public class Loops {
 
@@ -26,7 +26,7 @@ public class Loops {
         int i = 1;
         while (i <= 5) {
             System.out.println(i);
-            i++; // add 1 to i
+            i++;  // add 1 to i
         }
     }
 
@@ -34,7 +34,14 @@ public class Loops {
         int i = 2;
         while (i <= 8) {
             System.out.print(i + ", ");
-            i += 2; // add 2 to i
+            i += 2;  // add 2 to i
+        }
+        System.out.println("Who do we appreciate?");
+    }
+
+    public static void appreciate2() {
+        for (int i = 2; i <= 8; i += 2) {
+            System.out.print(i + ", ");
         }
         System.out.println("Who do we appreciate?");
     }
@@ -57,22 +64,25 @@ public class Loops {
     }
 
     public static void main(String[] args) {
-        System.out.println("countdown");
+        System.out.println("\ncountdown");
         countdown(3);
 
-        System.out.println("sequence");
+        System.out.println("\nsequence");
         sequence(10);
 
-        System.out.println("plusplus");
+        System.out.println("\nplusplus");
         plusplus();
 
-        System.out.println("appreciate");
+        System.out.println("\nappreciate");
         appreciate();
 
-        System.out.println("loopvar");
+        System.out.println("\nappreciate2");
+        appreciate2();
+
+        System.out.println("\nloopvar");
         loopvar();
 
-        System.out.println("nested");
+        System.out.println("\nnested");
         nested();
     }
 

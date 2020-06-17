@@ -1,5 +1,7 @@
+import java.util.Scanner;
+
 /**
- * Demonstrates uses of Strings.
+ * Demonstrates uses of strings.
  */
 public class Strings {
 
@@ -10,8 +12,8 @@ public class Strings {
         String fruit = "banana";
         char letter0 = fruit.charAt(0);
 
-        if (letter0 == 'a') {
-            System.out.println('?');
+        if (letter0 == 'A') {
+            System.out.println("It's an A!");
         }
 
         System.out.print("Roman alphabet: ");
@@ -25,6 +27,17 @@ public class Strings {
             System.out.print((char) i);
         }
         System.out.println();
+
+        // Which loop to use
+
+        Scanner in = new Scanner(System.in);
+        System.out.print("Enter a number: ");
+        while (!in.hasNextDouble()) {
+            String word = in.next();
+            System.err.println(word + " is not a number");
+            System.out.print("Enter a number: ");
+        }
+        double number = in.nextDouble();
 
         // String iteration
 
@@ -43,7 +56,29 @@ public class Strings {
         int index = fruit.indexOf('a');
         int index2 = fruit.indexOf('a', 2);
 
+        // Substrings
+
+        System.out.println(fruit.substring(0, 3));
+        System.out.println(fruit.substring(2, 5));
+        System.out.println(fruit.substring(6, 6));
+
+        System.out.println(fruit.substring(0));
+        System.out.println(fruit.substring(2));
+        System.out.println(fruit.substring(6));
+
         // String comparison
+
+        System.out.print("Play again? ");
+        String answer = in.nextLine();
+        if (answer == "yes") {                 // wrong!
+            System.out.println("Let's go!");
+        } else {
+            System.out.println("Goodbye!");
+        }
+        
+        if (answer.equals("yes")) {            // correct
+            System.out.println("Let's go!");
+        }
 
         String name1 = "Alan Turing";
         String name2 = "Ada Lovelace";
@@ -52,24 +87,13 @@ public class Strings {
         }
 
         int diff = name1.compareTo(name2);
-        if (diff == 0) {
-            System.out.println("The names are the same.");
-        } else if (diff < 0) {
+        if (diff < 0) {
             System.out.println("name1 comes before name2.");
         } else if (diff > 0) {
             System.out.println("name2 comes before name1.");
+        } else {
+            System.out.println("The names are the same.");
         }
-
-        // Substrings
-
-        System.out.println(fruit.substring(0));
-        System.out.println(fruit.substring(2));
-        System.out.println(fruit.substring(6));
-
-        System.out.println(fruit.substring(0, 3));
-        System.out.println(fruit.substring(2, 5));
-        System.out.println(fruit.substring(6, 6));
-
     }
 
     /**
