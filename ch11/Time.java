@@ -25,6 +25,30 @@ public class Time {
         this.second = second;
     }
 
+    public int getHour() {
+        return this.hour;
+    }
+
+    public int getMinute() {
+        return this.minute;
+    }
+
+    public double getSecond() {
+        return this.second;
+    }
+
+    public void setHour(int hour) {
+        this.hour = hour;
+    }
+
+    public void setMinute(int minute) {
+        this.minute = minute;
+    }
+
+    public void setSecond(double second) {
+        this.second = second;
+    }
+
     /**
      * Prints the time in a simple format.
      */
@@ -48,9 +72,10 @@ public class Time {
      * Tests whether two times are equivalent.
      */
     public boolean equals(Time that) {
+        final double DELTA = 0.001;
         return this.hour == that.hour
             && this.minute == that.minute
-            && this.second == that.second;
+            && Math.abs(this.second - that.second) < DELTA;
     }
 
     /**
@@ -72,6 +97,7 @@ public class Time {
         sum.hour = this.hour + t2.hour;
         sum.minute = this.minute + t2.minute;
         sum.second = this.second + t2.second;
+
         if (sum.second >= 60.0) {
             sum.second -= 60.0;
             sum.minute += 1;
@@ -80,22 +106,10 @@ public class Time {
             sum.minute -= 60;
             sum.hour += 1;
         }
+        if (sum.hour >= 24) {
+            sum.hour -= 24;
+        }
         return sum;
-    }
-
-    /**
-     * Adds the given number of seconds to this object (modifier).
-     */
-    public void increment(double seconds) {
-        this.second += seconds;
-        while (this.second >= 60.0) {
-            this.second -= 60.0;
-            this.minute += 1;
-        }
-        while (this.minute >= 60) {
-            this.minute -= 60;
-            this.hour += 1;
-        }
     }
 
 }
