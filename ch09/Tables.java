@@ -4,73 +4,61 @@
 public class Tables {
 
     public static void printRow() {
-        int i = 1;
-        while (i <= 6) {
+        for (int i = 1; i <= 6; i++) {
             System.out.printf("%4d", 2 * i);
-            i = i + 1;
         }
         System.out.println();
     }
 
     public static void printRow(int n) {
-        int i = 1;
-        while (i <= 6) {
+        for (int i = 1; i <= 6; i++) {
             System.out.printf("%4d", n * i);  // generalized n
-            i = i + 1;
         }
         System.out.println();
     }
 
     public static void printTable() {
-        int i = 1;
-        while (i <= 6) {
+        for (int i = 1; i <= 6; i++) {
             printRow(i);
-            i = i + 1;
         }
     }
 
     public static void printTable(int rows) {
-        int i = 1;
-        while (i <= rows) {  // generalized rows
+        for (int i = 1; i <= rows; i++) {     // generalized rows
             printRow(i);
-            i = i + 1;
         }
     }
 
     public static void printRow(int n, int cols) {
-        int i = 1;
-        while (i <= cols) {  // generalized cols
+        for (int i = 1; i <= cols; i++) {     // generalized cols
             System.out.printf("%4d", n * i);
-            i = i + 1;
         }
         System.out.println();
     }
 
     public static void printTable2(int rows) {
-        int i = 1;
-        while (i <= rows) {
-            printRow(i, rows);  // added rows argument
-            i = i + 1;
+        for (int i = 1; i <= rows; i++) {
+            printRow(i, rows);
         }
     }
 
     public static void main(String[] args) {
-        System.out.println("printRow()");
+        System.out.println("\nprintRow()");
         printRow();
 
-        System.out.println("printRow(6)");
+        System.out.println("\nprintRow(6)");
         printRow(6);
 
-        System.out.println("printTable()");
+        System.out.println("\nprintTable()");
         printTable();
 
-        System.out.println("printTable(6)");
+        System.out.println("\nprintTable(6)");
         printTable(6);
 
-        System.out.println("printRow(6, 6)");
+        System.out.println("\nprintRow(6, 6)");
         printRow(6, 6);
 
-        System.out.println("printTable2(6)");
+        System.out.println("\nprintTable2(6)");
         printTable2(6);
     }
 
