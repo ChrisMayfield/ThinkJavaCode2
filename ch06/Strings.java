@@ -38,6 +38,7 @@ public class Strings {
             System.out.print("Enter a number: ");
         }
         double number = in.nextDouble();
+        in.nextLine();  // read the newline
 
         // String iteration
 
