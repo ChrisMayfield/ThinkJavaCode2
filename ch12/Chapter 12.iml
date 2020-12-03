@@ -11,7 +11,11 @@
     <exclude-output />
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$" isTestSource="false" />
-      <excludeFolder url="file://$MODULE_DIR$/cardset-oxymoron" />
+      <sourceFolder url="file://$MODULE_DIR$/cardset-oxymoron" type="java-resource" />
+      <excludePattern pattern=".checkstyle" />
+      <excludePattern pattern=".classpath" />
+      <excludePattern pattern=".project" />
+      <excludePattern pattern="*.iml" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
