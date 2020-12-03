@@ -43,7 +43,7 @@ A few notes about the source code regarding what Java version you should use:
 
 - The examples in this book were developed and tested using OpenJDK 11.
 - If you are using a more recent version, everything should still work.
-- If you are using an older version, some of the examples might not.
+- If you are using an older version, some examples might not work, or may have unexpected consequences.
 
 There are a few ways you can work with the code:
 
@@ -51,7 +51,7 @@ There are a few ways you can work with the code:
 
 [jGRASP](https://www.jgrasp.org/) is an IDE used by beginners who are just getting started with Java. It isn't as sophisticated as Eclipse or IntelliJ IDEA, but it has enough features to begin learning Java without feeling too overwhelmed.
 
-- To open the source code in jGRASP, simply open jGRASP in the `ThinkJavaCode2` folder, or navigate to that folder in jGRASP's sidebar explorer. From there, you should be able to open the different `.java` files within the respository. You do not need to worry about the `.checkstyle`, `.classpath`, `.project`, or `*.iml` files.
+- To open the source code in jGRASP, simply open jGRASP in the `ThinkJavaCode2` folder, or navigate to that folder in jGRASP's sidebar explorer. From there, you should be able to open the different `.java` files within the repository. You do not need to worry about the `.checkstyle`, `.classpath`, `.project`, or `*.iml` files.
 
 ### Eclipse
 
@@ -61,7 +61,7 @@ There are a few ways you can work with the code:
 
 ### IntelliJ IDEA
 
-[IntelliJ IDEA](https://www.jetbrains.com/idea/) is an IDE mainly used by professionals or ambitious beginners. It's not recommended for beginners to use this IDE due to how convoluded the user interface can be, but it is a great tool down the line of Java development.
+[IntelliJ IDEA](https://www.jetbrains.com/idea/) is an IDE mainly used by professionals or ambitious beginners. It's not recommended for beginners to use this IDE due to how convoluted the user interface can be, but it is a great tool down the line of Java development.
 
 - To open the source code in IntelliJ IDEA, open the `ThinkJavaCode2` folder as a project, as it has already been pre-configured as a project. Each of the chapter folders have been labeled as modules, so you can work with the code in each one as if they were a different project, similar to an Eclipse workspace. You do not need to worry about the `.checkstyle`, `.classpath`, or `.project` files.
 
