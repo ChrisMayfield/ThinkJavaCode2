@@ -3,6 +3,9 @@ import java.awt.Graphics;
 
 /**
  * A square at a fixed location that changes color.
+ * 
+ * @author Chris Mayfield
+ * @version 7.1.0
  */
 public class Cell {
 
@@ -40,28 +43,32 @@ public class Cell {
     }
 
     /**
-     * @return true if the cell is OFF
+     * Tests whether the cell is off.
+     * 
+     * @return true if the cell is off
      */
     public boolean isOff() {
         return state == 0;
     }
 
     /**
-     * @return true if the cell is ON
+     * Tests whether the cell is on.
+     * 
+     * @return true if the cell is on
      */
     public boolean isOn() {
         return state == 1;
     }
 
     /**
-     * Sets the cell's state to OFF.
+     * Sets the cell's state to off.
      */
     public void turnOff() {
         state = 0;
     }
 
     /**
-     * Sets the cell's state to ON.
+     * Sets the cell's state to on.
      */
     public void turnOn() {
         state = 1;

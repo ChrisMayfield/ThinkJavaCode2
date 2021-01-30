@@ -3,6 +3,9 @@ import java.awt.Graphics;
 
 /**
  * 2D array of cells representing a rectangular grid.
+ * 
+ * @author Chris Mayfield
+ * @version 7.1.0
  */
 public class GridCanvas extends Canvas {
 
@@ -33,6 +36,8 @@ public class GridCanvas extends Canvas {
     }
 
     /**
+     * Gets the number of rows.
+     * 
      * @return number of rows
      */
     public int numRows() {
@@ -40,6 +45,8 @@ public class GridCanvas extends Canvas {
     }
 
     /**
+     * Gets the number of columns.
+     * 
      * @return number of columns
      */
     public int numCols() {
@@ -47,6 +54,8 @@ public class GridCanvas extends Canvas {
     }
 
     /**
+     * Gets the cell at index (r, c).
+     * 
      * @param r row index
      * @param c column index
      * @return the cell
