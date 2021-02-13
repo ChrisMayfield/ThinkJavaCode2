@@ -1,3 +1,6 @@
+# IntelliJ Building and Production
+out/
+
 # Compiled class file
 *.class
 
@@ -18,9 +21,38 @@
 *.tar.gz
 *.rar
 
+# Libraries (Don't ignore)
+!junit-platform-console-standalone-*.jar
+
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 
 # Eclipse workspace
 .metadata
 .recommenders
+
+# IntelliJ user-specific stuff
+.idea/**/workspace.xml
+.idea/**/tasks.xml
+.idea/**/usage.statistics.xml
+.idea/**/dictionaries
+.idea/**/shelf
+.idea/**/hotswap_agent.xml
+.idea/**/discord.xml
+.idea/**/markdown-nav*.xml
+.idea/**/checkstyleidea-libs/
+
+# IntelliJ generated files
+.idea/**/contentModel.xml
+
+# IntelliJ sensitive or high-churn files
+.idea/**/dataSources/
+.idea/**/dataSources.ids
+.idea/**/dataSources.local.xml
+.idea/**/sqlDataSources.xml
+.idea/**/dynamic.xml
+.idea/**/uiDesigner.xml
+.idea/**/dbnavigator.xml
+
+# File-based project format
+*.iws
