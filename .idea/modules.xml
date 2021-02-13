@@ -2,19 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/appa/Appendix A.iml" filepath="$PROJECT_DIR$/appa/Appendix A.iml" />
-      <module fileurl="file://$PROJECT_DIR$/appb/Appendix B.iml" filepath="$PROJECT_DIR$/appb/Appendix B.iml" />
-      <module fileurl="file://$PROJECT_DIR$/appc/Appendix C.iml" filepath="$PROJECT_DIR$/appc/Appendix C.iml" />
-      <module fileurl="file://$PROJECT_DIR$/appd/Appendix D.iml" filepath="$PROJECT_DIR$/appd/Appendix D.iml" />
       <module fileurl="file://$PROJECT_DIR$/ch01/Chapter 1.iml" filepath="$PROJECT_DIR$/ch01/Chapter 1.iml" />
-      <module fileurl="file://$PROJECT_DIR$/ch10/Chapter 10.iml" filepath="$PROJECT_DIR$/ch10/Chapter 10.iml" />
-      <module fileurl="file://$PROJECT_DIR$/ch11/Chapter 11.iml" filepath="$PROJECT_DIR$/ch11/Chapter 11.iml" />
-      <module fileurl="file://$PROJECT_DIR$/ch12/Chapter 12.iml" filepath="$PROJECT_DIR$/ch12/Chapter 12.iml" />
-      <module fileurl="file://$PROJECT_DIR$/ch13/Chapter 13.iml" filepath="$PROJECT_DIR$/ch13/Chapter 13.iml" />
-      <module fileurl="file://$PROJECT_DIR$/ch14/Chapter 14.iml" filepath="$PROJECT_DIR$/ch14/Chapter 14.iml" />
-      <module fileurl="file://$PROJECT_DIR$/ch15/Chapter 15.iml" filepath="$PROJECT_DIR$/ch15/Chapter 15.iml" />
-      <module fileurl="file://$PROJECT_DIR$/ch16/Chapter 16.iml" filepath="$PROJECT_DIR$/ch16/Chapter 16.iml" />
-      <module fileurl="file://$PROJECT_DIR$/ch17/Chapter 17.iml" filepath="$PROJECT_DIR$/ch17/Chapter 17.iml" />
       <module fileurl="file://$PROJECT_DIR$/ch02/Chapter 2.iml" filepath="$PROJECT_DIR$/ch02/Chapter 2.iml" />
       <module fileurl="file://$PROJECT_DIR$/ch03/Chapter 3.iml" filepath="$PROJECT_DIR$/ch03/Chapter 3.iml" />
       <module fileurl="file://$PROJECT_DIR$/ch04/Chapter 4.iml" filepath="$PROJECT_DIR$/ch04/Chapter 4.iml" />
@@ -23,6 +11,18 @@
       <module fileurl="file://$PROJECT_DIR$/ch07/Chapter 7.iml" filepath="$PROJECT_DIR$/ch07/Chapter 7.iml" />
       <module fileurl="file://$PROJECT_DIR$/ch08/Chapter 8.iml" filepath="$PROJECT_DIR$/ch08/Chapter 8.iml" />
       <module fileurl="file://$PROJECT_DIR$/ch09/Chapter 9.iml" filepath="$PROJECT_DIR$/ch09/Chapter 9.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ch10/Chapter 10.iml" filepath="$PROJECT_DIR$/ch10/Chapter 10.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ch11/Chapter 11.iml" filepath="$PROJECT_DIR$/ch11/Chapter 11.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ch12/Chapter 12.iml" filepath="$PROJECT_DIR$/ch12/Chapter 12.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ch13/Chapter 13.iml" filepath="$PROJECT_DIR$/ch13/Chapter 13.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ch14/Chapter 14.iml" filepath="$PROJECT_DIR$/ch14/Chapter 14.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ch15/Chapter 15.iml" filepath="$PROJECT_DIR$/ch15/Chapter 15.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ch16/Chapter 16.iml" filepath="$PROJECT_DIR$/ch16/Chapter 16.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ch17/Chapter 17.iml" filepath="$PROJECT_DIR$/ch17/Chapter 17.iml" />
+      <module fileurl="file://$PROJECT_DIR$/appa/Appendix A.iml" filepath="$PROJECT_DIR$/appa/Appendix A.iml" />
+      <module fileurl="file://$PROJECT_DIR$/appb/Appendix B.iml" filepath="$PROJECT_DIR$/appb/Appendix B.iml" />
+      <module fileurl="file://$PROJECT_DIR$/appc/Appendix C.iml" filepath="$PROJECT_DIR$/appc/Appendix C.iml" />
+      <module fileurl="file://$PROJECT_DIR$/appd/Appendix D.iml" filepath="$PROJECT_DIR$/appd/Appendix D.iml" />
       <module fileurl="file://$PROJECT_DIR$/Think Java, 2nd Edition.iml" filepath="$PROJECT_DIR$/Think Java, 2nd Edition.iml" />
     </modules>
   </component>

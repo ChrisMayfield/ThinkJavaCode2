@@ -61,9 +61,9 @@ There are a few ways you can work with the code:
 
 ### IntelliJ IDEA
 
-[IntelliJ IDEA](https://www.jetbrains.com/idea/) is an IDE mainly used by professionals or ambitious beginners. It's not recommended for beginners to use this IDE due to how convoluted the user interface can be, but it is a great tool down the line of Java development.
+[IntelliJ IDEA](https://www.jetbrains.com/idea/) is an IDE mainly used by professionals or ambitious beginners. It's not recommended for beginners to use this IDE due to how convoluted the user interface can be, but it is a great tool down the line for Java development.
 
-- To open the source code in IntelliJ IDEA, open the `ThinkJavaCode2` folder as a project, as it has already been pre-configured as a project. Each of the chapter folders have been labeled as modules, so you can work with the code in each one as if they were a different project, similar to an Eclipse workspace. You do not need to worry about the `.checkstyle`, `.classpath`, or `.project` files.
+- To open the source code in IntelliJ IDEA, open the `ThinkJavaCode2` folder as a project, as it has already been pre-configured as a project. It should automatically use your installation of JDK 11. Each of the chapter folders have been labeled as modules, so you can work with the code in each one as if they were a different project, similar to an Eclipse workspace. You do not need to worry about the `.checkstyle`, `.classpath`, or `.project` files in each folder, and they are ignored by IntelliJ's build path.
 
 ### Visual Studio Code
 

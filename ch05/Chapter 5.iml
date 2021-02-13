@@ -14,7 +14,6 @@
       <excludePattern pattern=".checkstyle" />
       <excludePattern pattern=".classpath" />
       <excludePattern pattern=".project" />
-      <excludePattern pattern="*.iml" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

@@ -21,6 +21,9 @@ out/
 *.tar.gz
 *.rar
 
+# Libraries (Don't ignore)
+!junit-platform-console-standalone-*.jar
+
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 
@@ -35,8 +38,8 @@ hs_err_pid*
 .idea/**/dictionaries
 .idea/**/shelf
 .idea/**/hotswap_agent.xml
-.idea/**/misc.xml
 .idea/**/discord.xml
+.idea/**/markdown-nav*.xml
 
 # IntelliJ generated files
 .idea/**/contentModel.xml
