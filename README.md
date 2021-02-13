@@ -57,13 +57,15 @@ There are a few ways you can work with the code:
 
 [Eclipse](https://www.eclipse.org/) is another IDE used by beginners and professionals alike, and is more feature-rich than jGRASP.
 
-- To open the source code in Eclipse, change your workspace to the `ThinkJavaCode2` folder. Eclipse should automatically detect the different chapter folders as projects and should add them accordingly. You do not need to worry about the `*.iml` file in each folder.
+- To open the source code in Eclipse, change your workspace to the `ThinkJavaCode2` folder. Eclipse should automatically detect the different chapter folders as projects and should add them accordingly. You do not need to worry about the `*.iml`
+- If you want to use CheckStyle with these projects, feel free to install the official [Eclipse Checkstyle Plugin](https://checkstyle.org/eclipse-cs/#!/) and then use the `Checkstyle.xml` file in the root folder as the configuration file.
 
 ### IntelliJ IDEA
 
 [IntelliJ IDEA](https://www.jetbrains.com/idea/) is an IDE mainly used by professionals or ambitious beginners. It's not recommended for beginners to use this IDE due to how convoluted the user interface can be, but it is a great tool down the line for Java development.
 
 - To open the source code in IntelliJ IDEA, open the `ThinkJavaCode2` folder as a project, as it has already been pre-configured as a project. It should automatically use your installation of JDK 11. Each of the chapter folders have been labeled as modules, so you can work with the code in each one as if they were a different project, similar to an Eclipse workspace. You do not need to worry about the `.checkstyle`, `.classpath`, or `.project` files in each folder, and they are ignored by IntelliJ's build path.
+- If you want to use CheckStyle with these projects, feel free to install the [CheckStyle-IDEA](https://plugins.jetbrains.com/plugin/1065-checkstyle-idea) plugin into your project (Settings -> Plugins). The settings for this project have already been pre-configured and should be recognized automatically when you restart your IDE to enable the plugin.
 
 ### Visual Studio Code
 
