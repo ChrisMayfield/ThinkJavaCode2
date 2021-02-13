@@ -2,6 +2,9 @@ import javax.swing.JFrame;
 
 /**
  * Conway's Game of Life.
+ * 
+ * @author Chris Mayfield
+ * @version 7.1.0
  */
 public class Conway {
 
@@ -109,8 +112,6 @@ public class Conway {
 
     /**
      * The simulation loop.
-     * 
-     * @param rate frames per second
      */
     private void mainloop() {
         while (true) {
