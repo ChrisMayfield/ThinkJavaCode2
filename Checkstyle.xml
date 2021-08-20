@@ -4,7 +4,7 @@
     "https://checkstyle.org/dtds/configuration_1_3.dtd">
 
 <!--
-Checkstyle configuration for Think Java, 2nd Edition.
+Checkstyle 8.44 configuration for Think Java, 2nd Edition.
 -->
 <module name="Checker">
     <property name="severity" value="warning"/>
@@ -82,6 +82,7 @@ Checkstyle configuration for Think Java, 2nd Edition.
             <property name="scope" value="private"/>
         </module>
         <module name="NonEmptyAtclauseDescription"/>
+        <module name="RequireEmptyLineBeforeBlockTagGroup"/>
         <module name="SummaryJavadocCheck"/>
 
         <!-- See https://checkstyle.sourceforge.io/config_misc.html -->
