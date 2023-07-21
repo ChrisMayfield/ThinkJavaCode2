@@ -29,9 +29,9 @@ public class Convert {
                 feet = inches / IN_PER_FOOT;
                 remainder = inches % IN_PER_FOOT;
                 inches = inches - (feet * IN_PER_FOOT);
-                System.out.printf("%.2f cm = %fd ft, %d in\n", cm, feet, inches);
+                System.out.printf("%.2f cm = %d ft, %d in\n", cm, feet, inches);
             }
-        } else if (choice == 2); {
+        } else if (choice == 2) {
             System.out.print("Enter feet: ");
             feet = in.nextInt();
             System.out.print("Enter inches: ");
@@ -39,19 +39,14 @@ public class Convert {
 
             if (feet < 0 || inches < 0 || inches >= IN_PER_FOOT) {
                 System.out.println("Please enter valid and positive values for feet and inches.");
+            } else {
+                cm = (feet * IN_PER_FOOT + inches) * CM_PER_INCH;
+                System.out.printf("%d ft, %d in = %.2f cm\n", feet, inches, cm);
             }
+        } else {
+            System.out.println("Invalid choice, please enter 1 or 2.");
         }
 
-        // prompt the user and get the value
-        System.out.print("Exactly how many cm? ");
-        cm = in.nextDouble();
-
-        // convert and output the result
-        inches = (int) (cm / CM_PER_INCH);
-        feet = inches / IN_PER_FOOT;
-        remainder = inches % IN_PER_FOOT;
-        System.out.printf("%.2f cm = %d ft, %d in\n",
-                          cm, feet, remainder);
     }
 
 }
