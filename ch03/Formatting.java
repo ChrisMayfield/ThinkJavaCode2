@@ -27,7 +27,8 @@ public class Formatting {
         inch = (int) (cm / CM_PER_INCH);
         System.out.printf("%f cm = %d in\n", cm, inch);
 
-        System.out.printf("inches = %d", inch);  // error was a + sign instead of a comma, fixed!
+
+        System.out.printf("inches = %d", inch);  // Error was a '+' sign where a comma should have been, fixed!
     }
 
 }
