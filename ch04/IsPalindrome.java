@@ -3,7 +3,7 @@ import java.util.Random;
 public class IsPalindrome {
     public static void main(String[] args) {
         Random random = new Random();
-        String input = generateRandomString(random, 4); 
+        String input = generateRandomString(random, 6); 
         boolean isPalindrome = isSpecial(input);
         System.out.println("Random String: " + input);
         System.out.println("Is it a palindrome? " + isPalindrome);
