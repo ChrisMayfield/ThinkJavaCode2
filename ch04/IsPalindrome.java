@@ -5,8 +5,10 @@ public class IsPalindrome {
         Random random = new Random();
         String input = generateRandomString(random, 6); 
         boolean isPalindrome = isSpecial(input);
+        int longestPalindromeLength = getPalindromeLength(input);
         System.out.println("Random String: " + input);
         System.out.println("Is it a palindrome? " + isPalindrome);
+        System.out.println("Longest Palindromic Length: " + longestPalindromeLength);
     }
 
     public static boolean isSpecial(String text) {
@@ -31,5 +33,29 @@ public class IsPalindrome {
         }
         return sb.toString();
     }
+
+    public static int getPalindromeLength(String text) {
+        String reversed = new StringBuilder(text).reverse().toString();
+        int maxLength = 0;
+        int currentLength = 0;
+    
+        for (int i = 0; i < text.length(); i++) {
+            if (text.charAt(i) == reversed.charAt(i)) {
+                currentLength++;
+                if (currentLength > maxLength) {
+                    maxLength = currentLength;
+                }
+            } else {
+                currentLength = 0;
+            }
+        }
+        return maxLength;
+    }
+    
+
+
 }
+
+
+
 
