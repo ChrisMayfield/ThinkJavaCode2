@@ -14,13 +14,14 @@ public class ScannerBug {
         name = in.nextLine();
         System.out.print("What is your age? ");
         age = in.nextInt();
+        in.nextLine(); // Consume the newline character after reading the age.
         System.out.printf("Hello %s, age %d\n", name, age);
 
-        in.reset();
         System.out.println();
 
         System.out.print("What is your age? ");
         age = in.nextInt();
+        in.nextLine(); // Consume the newline character after reading the age.
         System.out.print("What is your name? ");
         name = in.nextLine();
         System.out.printf("Hello %s, age %d\n", name, age);

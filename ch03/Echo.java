@@ -15,7 +15,11 @@ public class Echo {
 
         System.out.print("Type something else: ");
         line = in.nextLine();
-        System.out.println("You also said: " + line);
+        System.out.println("You then said: " + line);
+
+        System.out.print("One more time please: ");
+        line = in.nextLine();
+        System.out.println("I totally agree with " + line);
     }
 
 }

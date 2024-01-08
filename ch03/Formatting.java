@@ -11,7 +11,7 @@ public class Formatting {
         // formatting output
 
         System.out.print(4.0 / 3.0);
-        System.out.printf("Four thirds = %.3f", 4.0 / 3.0);
+        System.out.printf("Four thirds = %.3f\n", 4.0 / 3.0);
 
         int inch = 100;
         double cm = inch * CM_PER_INCH;
@@ -27,7 +27,8 @@ public class Formatting {
         inch = (int) (cm / CM_PER_INCH);
         System.out.printf("%f cm = %d in\n", cm, inch);
 
-        System.out.printf("inches = %d" + inch);  // error
+
+        System.out.printf("inches = %d", inch);  // Error was a '+' sign where a comma should have been, fixed!
     }
 
 }
